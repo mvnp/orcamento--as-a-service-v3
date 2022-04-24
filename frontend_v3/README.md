@@ -1,3 +1,21 @@
+# [Processo de Build no cPanel]
+
+## Fazendo build da applicação do frontend:
+```
+ng build --configuration production --base-href="https://orcamento.axitech.com.br/frontend_v3/dist/demo/" --deploy-url="https://orcamento.axitech.com.br/frontend_v3/dist/demo/"
+```
+
+## Comitando tudo
+```
+git add .
+git commit -am "Build in Production"
+git push
+```
+
+## Git Control Version in cPanel
+- Acessar cPanel > Git Version Control e fazer o pull do projeto clicando em Update From Remote
+
+
 # [Material Dashboard PRO Angular](https://demos.creative-tim.com/material-dashboard-pro-angular2/)
 
 ![version](https://img.shields.io/badge/version-2.6.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/ct-material-dashboard-pro-angular.svg?maxAge=2592000)](https://github.com/creativetimofficial/ct-material-dashboard-pro-angular/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/ct-material-dashboard-pro-angular.svg?maxAge=2592000)](https://github.com/creativetimofficial/ct-material-dashboard-pro-angular/issues?q=is%3Aissue+is%3Aclosed)
