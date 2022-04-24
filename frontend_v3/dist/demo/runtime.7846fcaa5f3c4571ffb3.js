@@ -241,7 +241,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	!function() {
-/******/ 		__webpack_require__.p = "";
+/******/ 		__webpack_require__.p = "https://orcamento.axitech.com.br/frontend_v3/dist/demo/";
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
