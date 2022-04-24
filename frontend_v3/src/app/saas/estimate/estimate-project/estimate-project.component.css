@@ -1,0 +1,46 @@
+@import url('../../../app.component.css');
+
+table {
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+table#orcamento tbody tr td:nth-child(2) {
+    white-space: nowrap;
+}
+
+::ng-deep.table .tr-row-table.thead-table {
+    background: transparent!important;
+    border-bottom: 1px solid #ccc;
+}
+
+::ng-deep.table > thead > tr > th {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+::ng-deep.table > thead > tr > th span,
+::ng-deep.table > thead > tr > th span strong {
+    color: #000!important;
+    font-size: 15px!important;
+    font-weight: 500!important;
+}
+
+::ng-deep.tr-row-table,
+::ng-deep.th-row-table {
+    /* max-height: 30px !important; */
+    height: 30px !important;
+    min-height: 30px !important;
+    line-height: initial;
+    padding: 0 10px;
+    margin: 0 0;
+    cursor: pointer;
+}
+
+::ng-deep.tr-serv {
+    min-width:350px !important; 
+    white-space: pre-line !important;
+}

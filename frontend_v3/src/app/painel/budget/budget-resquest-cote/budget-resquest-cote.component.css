@@ -1,0 +1,39 @@
+.alert span.instructions { 
+    max-width: 100%;
+    font-size: 1.1em;
+}
+
+::ng-deep.main-content {
+    padding: 10px 15px 30px 15px;
+}
+
+::ng-deep.mat-tab-label {
+    margin-top: 0!important;
+}
+
+form label {
+    font-size: 1.1rem;
+    color: #7e7e7e;
+    font-weight: 400; 
+}
+
+form textarea, form input[type="text"] {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #7e7e7e;
+}
+
+form textarea::placeholder {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #7e7e7e;
+}
+
+.timeline.timeline-simple > li > .timeline-panel {
+    width: 98%;
+}
+
+sup {
+    color: #ee4f4c;
+    cursor: pointer;
+}

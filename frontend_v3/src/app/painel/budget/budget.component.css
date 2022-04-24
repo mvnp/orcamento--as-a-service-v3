@@ -1,0 +1,16 @@
+@import url('../../example/dashboard/dashboard.component.css');
+
+
+::ng-deep.main-panel .main-content { margin-top: 0 !important }
+::ng-deep app-navbar-cmp { display: none; visibility: hidden }
+
+::ng-deep#budget .card {
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 40%);
+}
+
+::ng-deep#budget .card-body {
+    min-height: 130px;
+    display: flex;
+    align-items: unset;
+    justify-content: center;
+}

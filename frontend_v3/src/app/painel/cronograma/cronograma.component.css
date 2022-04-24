@@ -1,0 +1,51 @@
+.hide { 
+    display: none!important 
+}
+
+table.table { 
+    width: max-content!important;
+    min-width: 100%!important;
+}
+
+::ng-deep.mat-form-field-wrapper { 
+    margin: 0!important; 
+    padding: 0!important 
+}
+
+::ng-deep.mat-form-field-appearance-outline .mat-form-field-infix { 
+    padding: 0.5em 0 0.5em 0 
+}
+
+.fontWeight700 { 
+    font-weight: 700!important 
+}
+
+.table thead th { 
+    border-top:0!important; 
+    border-bottom: 0!important; 
+    line-height: 1.2rem!important 
+}
+
+button.btn-payment {
+    border-radius: 100%!important;
+    padding: 5px 11px!important;
+    margin-right: 5px!important;
+    margin-top: -2px!important;
+}
+
+.table-structure {
+    margin-top: -50px!important;
+}
+
+.mat-checkbox-edit {
+    margin-left: 5px!important;
+}
+
+.mat-icon-button {
+    height: 0px!important;
+}
+
+mat-icon.visibility {
+    cursor: pointer;
+    font-size: 1.2rem;
+}

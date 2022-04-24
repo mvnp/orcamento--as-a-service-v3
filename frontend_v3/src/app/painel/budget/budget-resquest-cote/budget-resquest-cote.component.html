@@ -1,0 +1,35 @@
+<div class="col-12">
+    <div class="align-items-center row">
+        
+        <div class="col-12" [hidden]="instructions">
+            <div class="row">
+                <div class="col-12 col-lg-3 d-flex">
+                    <h4 class="mt-4 font-weight-bolder align-self-center">{{ objBudget[0].subject }}</h4>
+                </div>
+                <div class="col-12 col-lg-9">
+                    <div class="alert alert-primary alert-with-icon" data-notify="container">
+                        <i class="material-icons" data-notify="icon">notifications</i>
+                        <span class="instructions" data-notify="message">Nesse ponto do sistema, você deverá inserir o detalhamento das atividades a serem executadas junto com os materiais e suas respectivas quantidades para que o vendedor possa responder da forma mais precisa sobre o custo dessa atividade em suprimento de materiais e mão de obra.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mt-3">
+            <form [formGroup]="form">
+                <label>Assunto <span (click)="showInstructions();"><sup>Ver instruções</sup></span></label>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <input type="text" matInput formControlName="subject" value="Orçamento - {{ objBudget[0].subject }}" />
+                    <mat-error *ngIf="submitted">*Campo obrigatório</mat-error>
+                </mat-form-field>
+                <label>Descrição</label>
+                <mat-form-field appearance="fill">
+                    <textarea formControlName="description" matInput rows="5" class="form-control"></textarea>
+                    <mat-error *ngIf="submitted && form.get('description').hasError('required')">*Campo obrigatório</mat-error>
+                    <mat-error *ngIf="submitted && form.get('description').hasError('minlength')">*Descrição muito curta</mat-error>
+                </mat-form-field>
+                <button [disabled]="objBudget[0].budget_cat_id == 0" mat-raised-button type="submit" (click)="sendRequestCote();" class="mt-3 btn btn-lg btn-fill btn-success">Solicitar orçamento</button>
+            </form>
+        </div>
+    </div>
+</div>

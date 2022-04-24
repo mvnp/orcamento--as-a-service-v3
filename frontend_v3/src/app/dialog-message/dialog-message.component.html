@@ -1,0 +1,24 @@
+<section class="p-2">
+    <h2 class="text-primary mb-3">{{ data.title }}</h2>
+    <div class="mb-3">
+        <span [innerHTML]='data.text' class="p1"></span>
+    </div>
+    <div *ngIf="data.fields" class="">
+        <div class="row" *ngFor="let field of data.fields">
+            <div class="form__field mb-3">
+                <label class="form__field--label"> {{ field.label }} </label>
+                <mat-form-field color="primary" appearance="outline">
+                    <input matInput disabled [value]="field.value">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="row flex-wrap-reverse gx-3">
+        <div class="col dialog__button" *ngIf="data.btnFalse" >
+            <button mat-stroked-button color="primary" [class]='data.classButton' tabindex="-1" (click)="onNoClick()" [id]='data.btnFalseId ? data.btnFalseId : ""'>{{data.btnFalse}}</button>
+        </div>
+        <div class="col dialog__button mb-2 mb-lg-0" *ngIf="data.btnTrue">
+            <button mat-raised-button color="primary" [class]='data.classButton' tabindex="-1"  (click)="onYesClick()" [id]='data.btnTrueId ? data.btnTrueId : ""'>{{data.btnTrue}}</button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,219 @@
+<div id="profile-page" class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- card Dados Pessoais -->
+                <div class="card mb-5">
+                    <div class="card-header card-header-icon card-header-danger">
+                        <div class="card-icon">
+                            <i class="material-icons">key</i>
+                        </div>
+                        <h3 class="card-title mb-3 up-label-floating">Trocar Senha <small><sup>(opcional)</sup></small></h3>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="passwordForm" autocomplete="off">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="up-label-floating">Senha</label>
+                                        <mat-form-field appearance="outline"> 
+                                            <input matInput formControlName="password" type="text" class="form-control" />
+                                            <mat-error *ngIf="submittedPass && passwordForm.get('password').hasError('required');">*Campo obrigatório</mat-error>
+                                            <mat-error *ngIf="submittedPass && passwordForm.get('password').hasError('minlength');">*A senha deve ter no mínimo 6 caracteres</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="up-label-floating">Repetir senha</label>
+                                        <mat-form-field appearance="outline"> 
+                                            <input matInput formControlName="compare_password" type="text" class="form-control" />
+                                            <mat-error *ngIf="submittedPass && passwordForm.get('compare_password').hasError('required');">*Campo obrigatório</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="handlePasswordForm();">Atualizar</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+                <!-- card Dados Pessoais -->
+                <div class="card mt-5">
+                    <div class="card-header card-header-icon card-header-danger">
+                        <div class="card-icon">
+                            <i class="material-icons">perm_identity</i>
+                        </div>
+                        <h3 class="card-title mb-3">Atualizar Dados Pessoais</h3>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="userForm" autocomplete="off">
+                            <div class="col-12" [hidden]="hideFormTypePessoa">
+
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label class="up-label-floating">Tipo <small><sup>(escolha uma opção)</sup></small></label>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select required (selectionChange)="setLabelsNameBasedUser($event)" formControlName="type_business">
+                                                <mat-option value="pessoa_fisica">Pessoa Física</mat-option>
+                                                <mat-option value="pessoa_juridica">Pessoa Jurídica</mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="submitted && userForm.get('type').hasError('required');">*Campo obrigatório</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label class="up-label-floating">Categoria principal de atuação</label>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select required formControlName="default_category_id">
+                                                <mat-option *ngFor="let category of categoryOfPartners" [value]="category.id">
+                                                    {{ category.description }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="submitted && userForm.get('default_category_id').hasError('required');">*Campo obrigatório</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                    
+                                <div class="row mb-2">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="up-label-floating">{{ fieldFantasia }}</label>
+                                            <mat-form-field appearance="outline"> 
+                                                <input matInput formControlName="corporate_name" type="text" class="form-control" />
+                                                <mat-error *ngIf="submitted && userForm.get('corporate_name').hasError('required');">*Campo obrigatório</mat-error>
+                                                <mat-error *ngIf="submitted && userForm.get('corporate_name').hasError('minlength');">*O campo deve ter no mínimo 6 caracteres</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="up-label-floating">{{ fieldRazao }}</label>
+                                            <mat-form-field appearance="outline"> 
+                                                <input matInput formControlName="unoficial_name" type="text" class="form-control" />
+                                                <mat-error *ngIf="submitted && userForm.get('unoficial_name').hasError('required');">*Campo obrigatório</mat-error>
+                                                <mat-error *ngIf="submitted && userForm.get('unoficial_name').hasError('minlength');">*O campo deve ter no mínimo 6 caracteres</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-2">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="up-label-floating">E-mail</label>
+                                            <mat-form-field appearance="outline" class="mat-form-field-readonly">
+                                                <input matInput formControlName="email" type="text" class="form-control" readonly />
+                                                <!-- <mat-error *ngIf="submitted && userForm.get('email').hasError('required');">*Campo obrigatório</mat-error> -->
+                                                <!-- <mat-error *ngIf="submitted && userForm.get('email').hasError('invalid');">*E-mail inválido</mat-error> -->
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-2">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="up-label-floating">Website</label>
+                                            <mat-form-field appearance="outline">
+                                                <input matInput formControlName="website" type="text" class="form-control" />
+                                                <!-- <mat-error *ngIf="submitted && userForm.get('email').hasError('required');">*Campo obrigatório</mat-error> -->
+                                                <!-- <mat-error *ngIf="submitted && userForm.get('email').hasError('invalid');">*E-mail inválido</mat-error> -->
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row mb-2">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="up-label-floating">Telefone principal</label>
+                                            <mat-form-field appearance="outline"> 
+                                                <input matInput formControlName="phone" type="text" class="form-control" mask="(00) 00000-0000 || (00) 0000-0000" />
+                                                <mat-error *ngIf="submitted && userForm.get('phone').hasError('required');">*Campo obrigatório</mat-error>
+                                                <mat-error *ngIf="submitted && userForm.get('phone').hasError('minlength');">*O campo deve ter no mínimo 10 caracteres</mat-error>
+                                                <mat-error *ngIf="submitted && userForm.get('phone').hasError('pattern');">*Formato inválido</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="up-label-floating">Telefone secundário</label>
+                                            <mat-form-field appearance="outline"> 
+                                                <input matInput formControlName="cellphone" type="text" class="form-control" mask="(00) 00000-0000 || (00) 0000-0000" />
+                                                <mat-error *ngIf="submitted && userForm.get('cellphone').hasError('required');">*Campo obrigatório</mat-error>
+                                                <mat-error *ngIf="submitted && userForm.get('cellphone').hasError('minlength');">*O campo deve ter no mínimo 11 caracteres</mat-error>
+                                                <mat-error *ngIf="submitted && userForm.get('cellphone').hasError('pattern');">*Formato inválido</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row mb-2">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="up-label-floating">Tipo</label>
+                                            <mat-form-field appearance="outline">
+                                                <mat-select required formControlName="type">
+                                                    <mat-option *ngFor="let type of types" [value]="type.key">{{ type.value }}</mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="submitted && userForm.get('type').hasError('required');">*Campo obrigatório</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <label class="up-label-floating">{{ fieldDocument }}</label>
+                                            <mat-form-field appearance="outline"> 
+                                                <input matInput *ngIf="fieldsIsCPF" formControlName="ein" type="text" class="form-control" mask="000.000.000-00" />
+                                                <input matInput *ngIf="!fieldsIsCPF" formControlName="ein" type="text" class="form-control" mask="00.000.000/0000-00" />
+                                                <mat-error *ngIf="submitted && userForm.get('ein').hasError('required');">*Campo obrigatório</mat-error>
+                                                <mat-error *ngIf="submitted && userForm.get('ein').hasError('mask');">*Formato inválido</mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="up-label-floating">Fale da sua empresa</label>
+                                            <mat-form-field appearance="outline"> 
+                                                <input matInput *ngIf="fieldsIsCPF" formControlName="ein" type="text" class="form-control" mask="000.000.000-00" />
+                                                <textarea matInput formControlName="description" rows="5" class="form-control"></textarea>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="handleUserForm();">Atualizar</button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile" style="position: relative;">
+                    <form [formGroup]="logoForm" method="POST">
+                        <div class="card-avatar">
+                            <img [src]="fotoUsuario" *ngIf="fotoUsuario" />
+                        </div>
+                        <button mat-icon-button (click)="fileInput.click()" class="profile-button">
+                            <i class="material-icons photo_camera">perm_identity</i>
+                        </button>
+                        <input hidden (change)="onFileSelected($event)" #fileInput type="file" accept="image/*">
+                        <div class="card-body">
+                            <h6 class="card-category text-gray">PROPRIETÁRIO</h6>
+                            <h4 class="card-title">{{ businessOwner | uppercase }}</h4>
+                            <p class="card-description">{{ businessDescription }}</p>
+                            <a [href]="businessWebsite" target="_blank" class="btn btn-danger btn-round">website</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

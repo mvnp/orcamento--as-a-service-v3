@@ -1,0 +1,40 @@
+<div id="budget" class="goUp main-content" style="position: relative;">
+    <app-budget-chatter></app-budget-chatter> 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-0">
+                    <!-- <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">mail_outline</i>
+                        </div>
+                        <h4 class="card-title"></h4>
+                    </div> -->
+                    <div class="card-body row">
+                        <div id="sidebar-segments" class="col-3 mt-0 mb-1">
+                            <h3 class="mt-0 s2parator">Orçamentos</h3>
+                            <ul class="nav nav-pills nav-pills-danger flex-column" role="tablist">
+                                <li class="nav-item" *ngFor="let item of budgetCategories; let i = index" (click)="selectFirstTabIndex(item.id);">
+                                    <a class="nav-link" data-toggle="tab" href="#link4" role="tablist" (click)="item.id">{{ item.description }}</a>
+                                </li>
+                            </ul>
+                        </div> 
+                        <div class="col-9 mt-0 mb-1">
+                            <mat-tab-group #selectionTabIndex id="mat-group-tabs">
+                                <mat-tab label="Solicitar orçamentos">
+                                    <app-budget-resquest-cote [objBudget]="objBudget" (numberOfMessages)="resultNumberOfMessages($event)"></app-budget-resquest-cote>
+                                </mat-tab>
+                                <mat-tab>
+                                    <ng-template mat-tab-label>
+                                        Ver mensagens <span class="circleCounterOfDataReceived">{{ showMessages }}</span>
+                                    </ng-template>
+                                    <app-budget-new-messages [objBudget]="objBudget"></app-budget-new-messages>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

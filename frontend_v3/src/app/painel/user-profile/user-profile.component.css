@@ -1,0 +1,24 @@
+#profile-page .profile-button {
+    margin: -18px auto 0;
+    z-index: 9999;
+    border: 2px solid #ed4e4b;
+    background: white;
+    width: 35px;
+    height: 35px;
+}
+
+::ng-deep#profile-page .mat-icon-button {
+    line-height: 24px!important;
+}
+
+::ng-deep#profile-page .mat-icon-button .photo_camera {
+    color: #f44336;
+}
+
+::ng-deep#profile-page .card-description {
+    color: #838383;
+    font-size: 16px;
+    line-height: 25px;
+    margin: 25px 0 30px;
+    font-weight: 400;
+}

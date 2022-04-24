@@ -1,0 +1,109 @@
+<div class="main-content" [class.hide]="cronogramaLoaded">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <h4 class="card-title">Cronograma</h4>
+                    </div>
+                    <div class="card-body table-structure">
+                        <div class="row mb-3">
+                            <div class="col-8"></div>
+                            <div class="col-2">
+                                <label>Escolha o mês</label>
+                                <mat-form-field appearance="outline">    
+                                    <mat-select>
+                                        <mat-option *ngFor="let _time of projectMonths" value="_time">{{ _time }}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-2">
+                                <label>Escolha a porcentagem</label>
+                                <mat-form-field appearance="outline">
+                                    <mat-select>
+                                        <mat-option value="10">10%</mat-option>
+                                        <mat-option value="25">25%</mat-option>
+                                        <mat-option value="50">50%</mat-option>
+                                        <mat-option value="100">100%</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="mat-elevation-z0 table">
+                                <thead class="bg-success text-white">
+                                    <th width="305">Categorias</th>
+                                    <th><!-- % -->Pagamento</th>
+                                    <th>Valores</th>
+                                    <th class="text-right column-hide-{{ i }}" width="135" *ngFor="let _obj of projectMonths; let i = index;">                               
+                                        <span>{{ _obj | uppercase }}</span>                                    
+                                    </th>
+                                    <th class="text-right">TOTAL</th>
+                                </thead>
+                                <tbody *ngFor="let _obj of projectCronograma">
+                                    <tr>
+                                        <td data-value="{{ _obj.id }}" width="305">
+                                            <strong class="fontWeight700">{{ _obj.description }}</strong>
+                                        </td>
+                                        <td data-value="{{ _obj.id }}" class="text-right">
+                                            <strong class="fontWeight700">{{ _obj.percent }}%</strong>
+                                        </td>
+                                        <td data-value="{{ _obj.id }}">
+                                            <strong class="fontWeight700">{{ _obj._super_amount | currency:"BRL":"" }}</strong>
+                                        </td>
+                                    </tr>
+                                    <tr *ngFor="let items of _obj.categorias">
+                                        <td data-value="{{ items.id }}">
+                                            <span>{{ items.description }}</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <!-- {{ items.percent }}% -->
+                                        </td>
+                                        <td>{{ items._sub_amount | currency:"BRL":"" }}</td>
+                                        <td *ngFor="let columns of items.registros; let i = index" class="text-right colunm-{{ i }}">
+                                            <a href="javascript:void(0)" class="d-flex" *ngIf="columns.amount == '0'">
+                                                <span><button 
+                                                    mat-raised-button
+                                                    class="btn btn-success btn-sm btn-payment" 
+                                                    (click)="currentMonthPayment(columns.id, items._sub_amount);" 
+                                                    [disabled]="items._total_task != columns.amount">$</button>
+                                                </span>
+                                                <span><strong data-value="{{ columns.id }}">{{ columns.amount | currency:"BRL":"" }}</strong></span>
+                                            </a>
+                                            <a href="javascript:void(0)" class="d-flex" *ngIf="columns.amount > '0'">
+                                                <span><button class="btn btn-danger btn-sm btn-payment" mat-raised-button (click)="currentMonthReturn(columns.id);" >$</button></span>
+                                                <span><strong data-value="{{ columns.id }}">{{ columns.amount | currency:"BRL":"" }}</strong></span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <button href="javascript:void(0);" class="btn btn-info btn-sm btn-payment" mat-raised-button [disabled]=true>$</button>
+                                            {{ items._total_task | currency:"BRL":"" }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="16">
+                                            <p class="fontWeight700">VALOR DO CONTRATO</p>
+                                            <p class="fontWeight700 text-success">R$1,000,000.00</p>
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-success text-white">
+                                        <th>TOTAL</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th class="text-right" width="115"  *ngFor="let _obj of sumOfMonthInYear">{{ _obj | currency:"BRL":"" }}</th>
+                                        <th class="text-right">TOTAL</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

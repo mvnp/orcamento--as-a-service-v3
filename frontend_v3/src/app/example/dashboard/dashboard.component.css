@@ -1,0 +1,52 @@
+/* Reusing */
+.hidden { 
+    display: none!important
+}
+
+.circleCounterOfDataReceived {
+    color: white;
+    background: red;
+    font-size: 0.7rem;
+    border-radius: 100%;
+    padding: 2px;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* separator in sidebar */
+::ng-deep#budget .s2parator {
+    border-bottom: 1px solid #ebebeb;
+    line-height: 3rem;
+}
+
+/* items in ul list of sidebar */
+::ng-deep#sidebar-segments .nav-pills {
+    padding: 0 0;
+}
+
+::ng-deep#sidebar-segments .nav-link {
+    font-size: 14px;
+    line-height: 12px;
+    text-align: left;
+    border-radius: 0;
+    background-color: rgba(200, 200, 200, 0.4);
+}
+
+::ng-deep#sidebar-segments .nav-link.active {
+    background-color: #f44336;
+}
+
+/* format tabs of show data called by sidebar segments */
+::ng-deep#mat-group-tabs .mat-tab-label {
+    font-size: 1.25rem;
+    line-height: 1.3em;
+    margin: 20px 0 3px;
+    font-weight: 300;
+}
+
+::ng-deep#mat-group-tabs.mat-primary .mat-ink-bar {
+    background-color: #f44336;
+}

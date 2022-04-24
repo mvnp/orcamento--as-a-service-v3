@@ -1,0 +1,87 @@
+/* remove margin on top to move up tab cards */
+::ng-deep.main-panel .main-content { 
+    margin-top: 0 !important;
+    padding: 30px 0 0!important;
+}
+/* hide the top content navbar to move up tab cards */
+::ng-deep app-navbar-cmp { display: none; visibility: hidden }
+/* setup tab cards to receive content */
+::ng-deep#project-init .mat-tab-label {
+    min-width: 108px!important;
+    padding: 0!important;
+    /* font-size: 15px!important; */
+}
+/* init of body content padding top to keep distance of header content */
+::ng-deep#project-init .mat-tab-body-wrapper {
+    padding-top: 1rem;
+}
+/* setup de formulários */
+::ng-deep#project-init.form-check, 
+::ng-deep#project-init label {
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #3a3a3a;
+}
+/* replace card in project component because incompatibility */
+::ng-deep#project-init .builder-card {
+    border: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 6px;
+    color: #333333;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+}
+/* replace card-body in project component because incompatibility */
+::ng-deep#project-init .builder-card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+/* edit forms: [input] */
+::ng-deep#project-init .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0 0 0 0;
+}
+/* edit forms: [input[label]] */
+::ng-deep#project-init .up-label-floating {
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+::ng-deep#project-init .up-label-floating sup {
+    color: green;
+    text-transform: none;
+    font-size: 12px;
+}
+/* edit forms: [input[content]] */
+::ng-deep#project-init .mat-input-element {
+    font-size: 17px;
+}
+::ng-deep#project-init .mat-form-field-readonly {
+    background: #f7f7f7;
+    border-radius: 5px;
+}
+::ng-deep#project-init .mat-input-element:read-only {
+    background-image: none;
+    background-color: transparent;
+}
+/* edit forms: [select] */
+::ng-deep#project-init .mat-select {
+    height: 34px;
+    font-size: 22px;
+}
+::ng-deep#project-init .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(-25%);
+    vertical-align: sub;
+}
+::ng-deep#project-init .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+
+::ng-deep#project-init .mat-error {
+    padding-top: 18px;
+    margin-left: -10px;
+    font-size: 13px;
+}

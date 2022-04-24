@@ -1,0 +1,69 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matTableExporter #exporter="matTableExporter">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> ID </th>
+            <td mat-cell *matCellDef="let element" class="w_1"> {{ element.user_id | number:"2.0-0" }} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef class="w_1">  
+                <span> Nome </span> 
+                <button mat-raised-button class="btn btn-danger btn-sm btn-sm-exporter" (click)="exporter.exportTable('csv')">
+                    Exportar todos
+                </button>
+            </th>
+            <td mat-cell *matCellDef="let element" class="w_1"> {{ element.user.name }} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> Telefone </th>
+            <td mat-cell *matCellDef="let element" class="w_1"> {{ element.user.phone | mask:"(00) 00000-0000 || (00) 0000-0000"}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> E-mail </th>
+            <td mat-cell *matCellDef="let element" class="w_1"> {{ element.user.email }} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="is_business">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> Perfil do Cliente </th>
+            <td mat-cell *matCellDef="let element" class="w_1"> {{ element.user.is_business == 'pessoa_fisica' ? 'Pessoa Física' : 'Pessoa Jurídica' }} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="disable">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> Desabilitar </th>
+            <td mat-cell *matCellDef="let element" class="button-fit-content"> 
+                <button mat-raised-button class="btn btn-primary btn-sm"> Desabilitar </button>
+            </td>
+        </ng-container>   
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> Editar </th>
+            <td mat-cell *matCellDef="let element" class="button-fit-content"> 
+                <button mat-raised-button class="btn btn-success btn-sm"> Editar </button>
+            </td>
+        </ng-container>   
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> Remover </th>
+            <td mat-cell *matCellDef="let element" class="button-fit-content"> 
+                <button mat-raised-button class="btn btn-danger btn-sm"> Remover </button>
+            </td>
+        </ng-container>        
+
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons  aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

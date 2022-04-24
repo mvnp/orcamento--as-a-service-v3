@@ -1,0 +1,99 @@
+<div class="mat-elevation-z0 table table-responsive">
+    <table class="table">
+        <thead class="tr-row-table thead-table" style="background: #dfdfdf">
+            <tr class="tr-row-table">
+                <th class="tr-row-table"><span class="d-block"><strong>ID</strong></span></th>
+                <th class="tr-row-table"><span class="d-block"><strong>SRV</strong></span></th>
+                <th class="tr-row-table"><span class="d-block"><strong>Descrição</strong></span></th>
+                <th class="tr-row-table"><span class="d-block"><strong>Pagamento</strong></span></th>
+                <!-- <th class="tr-row-table"><span class="d-block"><strong>PERC_DEP</strong></span></th> -->
+                <!-- <th class="tr-row-table"><span class="d-block"><strong>VALOR_DEP</strong></span></th> -->
+                <!-- <th class="tr-row-table"><span class="d-block"><strong>PERC_SERV</strong></span></th> -->
+                <th class="tr-row-table"><span class="d-block"><strong>Valor</strong></span></th>
+                <th class="tr-row-table month" *ngFor="let month of monthRewrite" style="white-space: nowrap">
+                    <span class="d-block text-right"><strong>{{ month | uppercase }}</strong></span>
+                </th>
+                <th class="tr-row-table"><span class="d-block"> 
+                    <strong>VALOR_TOTAL</strong></span>
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let dep of departments">
+            <tr style="background: #e9e9e9">
+                <td class="tr-row-table"><span class="d-block"> {{ dep.id | number:"3.0-0" }} </span></td>
+                <td class="tr-row-table"><span class="d-block"></span></td>
+                <td class="tr-row-table tr-serv"><span class="d-block"> {{ dep.description }} </span></td>
+                <td class="tr-row-table"><span class="d-block"></span></td>
+                <!-- <td class="tr-row-table"><span class="d-block"> {{ dep.percent }} </span></td> -->
+                <!-- <td class="tr-row-table"><span class="d-block"> {{ (((amount)*dep.percent)/100) | currency:"BRL" }} </span></td> -->
+                <td class="tr-row-table" colspan="14"><span class="d-block"></span></td>
+                <td class="tr-row-table"><span class="d-block">VALOR_TOTAL</span></td>
+            </tr>
+            <tr *ngFor="let services of dep.services">
+                <td class="tr-row-table"> </td>
+                <td class="tr-row-table"> {{ services.id | number:"3.0-0" }} </td>
+                <td class="tr-row-table tr-serv"> {{ services.description }} </td>
+                <td class="tr-row-table">
+                    <button class="btn btn-danger btn-sm">Pagar</button>
+                </td>
+                <!-- <td class="tr-row-table"> </td> -->
+                <!-- <td class="tr-row-table"> </td> -->
+                <!-- <td class="tr-row-table"> {{ services.percent }} </td> -->
+                <td class="tr-row-table"> {{ ((((amount)*dep.percent)/100)*((services.percent)/100)) | currency:"BRL" }} </td>
+                <td class="tr-row-table text-right" *ngFor="let tasks of services.tasks" data-info="{{ tasks.id }}"> {{ tasks.total_amount_to_pay | currency:"BRL" }} </td>
+                <td class="tr-row-table">VALOR_TOTAL</td>
+            </tr>
+        </tbody>
+        <tfoot class="tr-row-table" style="background: #dfdfdf; height: 70px!important;">
+            <tr class="tr-row-table">
+                <th class="tr-row-table"><span class="d-block"><strong> # </strong></span></th>
+                <th class="tr-row-table"><span class="d-block"><strong> # </strong></span></th>
+                <th class="tr-row-table"><span class="d-block"><strong> DESCRICAO </strong></span></th>
+                <th class="tr-row-table"><span class="d-block"><strong> PAGAR </strong></span></th>
+                <!-- <th class="tr-row-table"> PERC DEP </th> -->
+                <!-- <th class="tr-row-table"><span class="d-block"><strong> VALOR DEP </strong></span></th> -->
+                <!-- <th class="tr-row-table"> PERC SERV </th> -->
+                <th class="tr-row-table"><span class="d-block"><strong> VALOR </strong></span></th>
+                <th class="tr-row-table text-right" *ngFor="let month of monthRewrite" style="white-space: nowrap">
+                    <span class="d-block"><strong>{{ month | uppercase }}</strong></span>
+                </th>
+                <th class="tr-row-table">
+                    <span class="d-block"><strong>VALOR_TOTAL</strong></span>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+    <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons  aria-label="Select page of periodic elements"></mat-paginator>
+
+
+
+
+
+
+
+
+
+    <!-- <table id="orcamento" class="table table-responsive">
+        <thead>
+            <tr>
+                <th> ID </th>
+                <th> Descrição </th>
+                <th> VALOR </th>
+                <th *ngFor="let col of columnsOfTable" class="text-center"> {{ col | uppercase }} </th>
+                <th>Valor Total</th>
+        </thead>
+        <tbody *ngFor="let eachDep of dataProjectTasks">
+            <tr *ngFor="let task of eachDep.tasks; let i = index">
+                <td><strong> {{ task.id | number:"3.0-0" }} </strong></td>
+                <td><strong> {{ task.description }} </strong></td>
+                <td><strong> {{ task.amount }} </strong></td>
+                <td *ngFor="let month of task.months" data-montid="{{ month.id }}"> {{ 0 | currency:"BRL" }} </td>
+                <td></td>
+            </tr>
+        </tbody>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>    
+    </table> -->
+    <!-- Pagination -->
+    <!-- <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons  aria-label="Select page of periodic elements"></mat-paginator> -->
+</div>

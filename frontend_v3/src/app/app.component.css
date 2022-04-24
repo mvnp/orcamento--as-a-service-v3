@@ -1,0 +1,65 @@
+/* ####################################################### */
+/* ####################################################### */
+/* ######## REUSABLE CLASSES ############################# */
+/* ####################################################### */
+/* ####################################################### */
+table .fit-content { 
+    width: fit-content; 
+    padding: 0 5px 
+}
+
+table .button-fit-content { 
+    width: 1%; 
+    padding: 0 5px 
+}
+
+
+::ng-deep table th, ::ng-deep table td {
+    font-size: 15px!important;
+    color: #000!important;
+    font-weight: 400;
+}
+
+::ng-deep.mat-tab-header {
+    margin-bottom: 30px;
+}
+
+::ng-deep table {
+    width: 100%;
+}
+
+::ng-deep.btn-sm.btn-sm-exporter {
+    padding: 0.3rem 1.3rem 0.2rem!important;
+    margin-left: 20px!important;
+    margin-top: -1px!important;
+}
+
+::ng-deep.mat-tab-group.mat-primary .mat-ink-bar, 
+::ng-deep.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #e53935;
+}
+
+::ng-deep.card.bg-rose, 
+::ng-deep.card .card-header-rose .card-icon, 
+::ng-deep.card .card-header-rose .card-text, 
+::ng-deep.card.card-rotate.bg-rose .front, 
+::ng-deep.card.card-rotate.bg-rose .back,
+::ng-deep.card .card-header-rose:not(.card-header-icon):not(.card-header-text) {
+    background: linear-gradient(60deg, #e53935, #db3834);
+}
+
+/* ::ng-deep table > .mat-tab-label {
+    height: 48px;
+    padding: 0 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+::ng-deep table > .mat-tab-label-active {
+    background: #e53935;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 0 20px;
+    color: #fff;
+    font-weight: 700;
+} */

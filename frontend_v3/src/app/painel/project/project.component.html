@@ -1,0 +1,66 @@
+<div id="project-init" class="goUp main-content" style="position: relative;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="builder-card mt-0">
+                    <!-- <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">mail_outline</i>
+                        </div>
+                        <h4 class="card-title"></h4>
+                    </div> -->
+                    <div class="builder-card-body row">
+                        <!-- <div id="sidebar-segments" class="col-3 mt-0 mb-1">
+                            <h3 class="mt-0 s2parator">Orçamentos</h3>
+                            <ul class="nav nav-pills nav-pills-danger flex-column" role="tablist">
+                                <li class="nav-item" *ngFor="let item of budgetCategories; let i = index" (click)="selectFirstTabIndex(item.id);">
+                                    <a class="nav-link" data-toggle="tab" href="#link4" role="tablist" (click)="item.id">{{ item.description }}</a>
+                                </li>
+                            </ul>
+                        </div> -->
+                        <div class="col-12 mt-0 mb-1">
+                            <mat-tab-group #userTabIndex [(selectedIndex)]="selectedIndex" id="mat-group-tabs">
+                                <mat-tab label="Dashboard">
+                                    <app-reports></app-reports>
+                                </mat-tab>
+                                <mat-tab label="Perfil">
+                                    <app-user-profile></app-user-profile>
+                                </mat-tab>
+                                <mat-tab label="Projetos">
+                                    Projetos
+                                </mat-tab>
+                                <mat-tab label="Orçamentos">
+                                    Orçamentos
+                                </mat-tab>
+                                <mat-tab label="Cronograma">
+                                    Cronograma
+                                </mat-tab>
+                                <mat-tab label="Pagamentos">
+                                    Pagamentos
+                                </mat-tab>
+                                <mat-tab label="Compras">
+                                    Compras
+                                </mat-tab>
+                                <mat-tab label="Galeria">
+                                    Galeria
+                                </mat-tab>
+                                <mat-tab label="Arquivos">
+                                    Arquivos
+                                </mat-tab>
+                                <mat-tab label="Propostas">
+                                    Propostas
+                                </mat-tab>
+                                <mat-tab label="Contratos">
+                                    Contratos
+                                </mat-tab>
+                                <mat-tab label="Anotações">
+                                    Anotações
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
