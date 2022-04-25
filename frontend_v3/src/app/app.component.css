@@ -17,6 +17,9 @@ table .button-fit-content {
     padding: 0 5px 
 }
 
+::ng-deeo.mat-form-field-label {
+    font-size: 50px!important;
+}
 
 ::ng-deep table th, ::ng-deep table td {
     font-size: 15px!important;

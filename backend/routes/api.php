@@ -89,7 +89,6 @@ Route::controller(ProjectTaskController::class)->group(function() {
     });
 });
 
-
 Route::controller(BudgetController::class)->group(function() {
     Route::prefix('v1')->group(function() {
         // Route::get('/budgets',                   'index');

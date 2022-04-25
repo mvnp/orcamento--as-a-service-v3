@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
+    production: true,
     productionUrl: 'https://orcamento.axitech.com.br/backend/public/api/v1',
 };

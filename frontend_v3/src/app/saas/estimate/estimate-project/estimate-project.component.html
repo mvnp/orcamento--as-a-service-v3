@@ -1,4 +1,13 @@
 <div class="mat-elevation-z0 table table-responsive">
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>Selecione meses para esconder</mat-label>
+            <mat-select multiple placeholder="Escolha meses para esconder da table">
+                <mat-option (onSelectionChange)="manageColumnsOfTable($event)" *ngFor="let month of monthRewrite;" value="month-{{ month.n }}">{{ month.m }}</mat-option>
+            </mat-select>
+    </mat-form-field>
+
     <table class="table">
         <thead class="tr-row-table thead-table" style="background: #dfdfdf">
             <tr class="tr-row-table">
@@ -10,8 +19,8 @@
                 <!-- <th class="tr-row-table"><span class="d-block"><strong>VALOR_DEP</strong></span></th> -->
                 <!-- <th class="tr-row-table"><span class="d-block"><strong>PERC_SERV</strong></span></th> -->
                 <th class="tr-row-table"><span class="d-block"><strong>Valor</strong></span></th>
-                <th class="tr-row-table month" *ngFor="let month of monthRewrite" style="white-space: nowrap">
-                    <span class="d-block text-right"><strong>{{ month | uppercase }}</strong></span>
+                <th *ngFor="let month of monthRewrite" class="tr-row-table month-{{ month.n }}" style="white-space: nowrap">
+                    <span class="d-block text-right"><strong>{{ month.m | uppercase }}</strong></span>
                 </th>
                 <th class="tr-row-table"><span class="d-block"> 
                     <strong>VALOR_TOTAL</strong></span>
@@ -26,7 +35,7 @@
                 <td class="tr-row-table"><span class="d-block"></span></td>
                 <!-- <td class="tr-row-table"><span class="d-block"> {{ dep.percent }} </span></td> -->
                 <!-- <td class="tr-row-table"><span class="d-block"> {{ (((amount)*dep.percent)/100) | currency:"BRL" }} </span></td> -->
-                <td class="tr-row-table" colspan="14"><span class="d-block"></span></td>
+                <td class="department-edit tr-row-table" colspan="14"><span class="d-block"></span></td>
                 <td class="tr-row-table"><span class="d-block">VALOR_TOTAL</span></td>
             </tr>
             <tr *ngFor="let services of dep.services">
@@ -34,13 +43,17 @@
                 <td class="tr-row-table"> {{ services.id | number:"3.0-0" }} </td>
                 <td class="tr-row-table tr-serv"> {{ services.description }} </td>
                 <td class="tr-row-table">
-                    <button class="btn btn-danger btn-sm">Pagar</button>
+                    <button class="btn btn-danger btn-sm" (click)="submitPayment(services.id);">
+                        <span>Pagar</span>
+                    </button>
                 </td>
                 <!-- <td class="tr-row-table"> </td> -->
                 <!-- <td class="tr-row-table"> </td> -->
                 <!-- <td class="tr-row-table"> {{ services.percent }} </td> -->
                 <td class="tr-row-table"> {{ ((((amount)*dep.percent)/100)*((services.percent)/100)) | currency:"BRL" }} </td>
-                <td class="tr-row-table text-right" *ngFor="let tasks of services.tasks" data-info="{{ tasks.id }}"> {{ tasks.total_amount_to_pay | currency:"BRL" }} </td>
+                <td *ngFor="let tasks of services.tasks; let i = index;" data-info="{{ tasks.id }}" class="tr-row-table text-right month-{{ i }}"> 
+                    {{ tasks.total_amount_to_pay | currency:"BRL" }} 
+                </td>
                 <td class="tr-row-table">VALOR_TOTAL</td>
             </tr>
         </tbody>
@@ -54,8 +67,8 @@
                 <!-- <th class="tr-row-table"><span class="d-block"><strong> VALOR DEP </strong></span></th> -->
                 <!-- <th class="tr-row-table"> PERC SERV </th> -->
                 <th class="tr-row-table"><span class="d-block"><strong> VALOR </strong></span></th>
-                <th class="tr-row-table text-right" *ngFor="let month of monthRewrite" style="white-space: nowrap">
-                    <span class="d-block"><strong>{{ month | uppercase }}</strong></span>
+                <th *ngFor="let month of monthRewrite" class="tr-row-table text-right month-{{ month.n }}" style="white-space: nowrap">
+                    <span class="d-block"><strong>{{ month.m | uppercase }}</strong></span>
                 </th>
                 <th class="tr-row-table">
                     <span class="d-block"><strong>VALOR_TOTAL</strong></span>

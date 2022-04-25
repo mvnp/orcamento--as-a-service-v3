@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProjectTask;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class ProjectTaskController extends Controller
 {
@@ -12,9 +13,19 @@ class ProjectTaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        //
+        // if($req->project_id && $req->project_department_service_id && $req->date_task_executed) {
+        //     $task = ProjectTask::where([
+        //         'project_id' => $req->project_id,
+        //         'project_department_service_id' => $req->project_department_service_id,
+        //         'date_task_executed' => $req->date_task_executed,
+        //     ])->get();
+
+
+        // }
+
+        return Response::json(array('data' => $req->all()), 200);
     }
 
     /**
@@ -41,6 +52,7 @@ class ProjectTaskController extends Controller
     /**
      * Display the specified resource.
      *
+     * public function show(ProjectTask $id) ...
      * @param  \App\Models\ProjectTask  $projectTask
      * @return \Illuminate\Http\Response
      */

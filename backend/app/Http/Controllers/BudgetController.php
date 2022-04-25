@@ -49,13 +49,15 @@ class BudgetController extends Controller
      */
     public function show($project_id = 1)
     {
-        $amount_of_project = Project::find($project_id)['amount'];
+        $project = Project::find($project_id);
+        $amount_of_project = $project['amount'];
         $what_months_have = Project::getTimeOfProject($project_id);
         $departments = ProjectDepartment::with('services')->with('services.tasks', function($query) use ($project_id) {
             $query->where('project_tasks.project_id', '=', $project_id);
         })->get();
 
         return Response::json(array('data' => [
+            "project" => $project,
             "amount" => $amount_of_project,
             "months" => $what_months_have,
             "departments" => $departments

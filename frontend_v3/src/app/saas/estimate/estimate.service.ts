@@ -13,4 +13,9 @@ export class EstimateService {
     getSpecificEstimate(id: number) {
         return this.httpClient.get(`${this.baseUrl}/budget/${id}`);
     }
+
+    getDataOfSpecificTask(objTask) {
+        console.log("service", objTask);
+        return this.httpClient.get(`${this.baseUrl}/project-task/${objTask}`);
+    }
 }

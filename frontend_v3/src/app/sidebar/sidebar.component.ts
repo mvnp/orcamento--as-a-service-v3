@@ -23,11 +23,56 @@ export interface ChildrenItems {
 
 //Menu Items
 export const ROUTES: RouteInfo[] = [{
-        path: '/saas/projects',
-        title: 'Projetos',
+        path: '/dashboard',
+        title: 'Painel',
         type: 'link',
         icontype: 'dashboard'
-    },
+    }, {
+        path: '/saas/meuscontratos',
+        title: 'Meus contratos',
+        type: 'link',
+        icontype: 'dashboard'
+    }, {
+        path: '/saas/custodaobra',
+        title: 'Custo da Obra',
+        type: 'link',
+        icontype: 'dashboard'
+    }, {
+        path: '/saas/cronograma',
+        title: 'Cronograma',
+        type: 'link',
+        icontype: 'dashboard'
+    }, {
+        path: '/saas/orcamento',
+        title: 'Orçamentos',
+        type: 'link',
+        icontype: 'dashboard'
+    }, {
+        path: '/saas/empreiteiras',
+        title: 'Empreiteiros',
+        type: 'link',
+        icontype: 'dashboard'
+    }, {
+        path: '/saas/fornecedores',
+        title: 'Fornecedores',
+        type: 'link',
+        icontype: 'dashboard'
+    }, {
+        path: '/saas/projects',
+        title: 'Meus Projetos',
+        type: 'link',
+        icontype: 'dashboard'
+    }, {
+        path: '/saas/relatorios',
+        title: 'Relatórios',
+        type: 'link',
+        icontype: 'dashboard'
+    }, {
+        path: '/saas/fotosdaobra',
+        title: 'Fotos da Obra',
+        type: 'link',
+        icontype: 'dashboard'
+    }, 
     // {
     //     path: '/components',
     //     title: 'Components',
