@@ -16,14 +16,15 @@ import { ListProjectsComponent } from './projects/list-projects/list-projects.co
 import { LandingPageComponent } from './projects/landing-page/landing-page.component';
 import { ManagerProjectsComponent } from './projects/manager-projects/manager-projects.component';
 
-import { CustomersComponent } from './customers/customers.component';
-import { ListCustomersComponent } from './customers/list-customers/list-customers.component';
-
 import { PartnersComponent } from './partners/partners.component';
 import { ListPartnersComponent } from './partners/list-partners/list-partners.component';
 
-import { EstimateComponent } from './estimate/estimate.component';
-import { EstimateProjectComponent } from './estimate/estimate-project/estimate-project.component';
+// import { ContractsComponent } from './contracts/contracts.component';
+// import { MyContractsComponent } from './contracts/my-contracts/my-contracts.component';
+
+import { ContractsModule } from './contracts/contracts.module';
+import { EstimateModule } from './estimate/estimate.module';
+import { CustomersModule } from './customers/customers.module';
 
 @NgModule({
     imports: [
@@ -34,7 +35,10 @@ import { EstimateProjectComponent } from './estimate/estimate-project/estimate-p
         MdModule,
         NgxMaskModule.forChild(),
         RouterModule.forChild(SaasRoutes),
-        MatTableExporterModule
+        MatTableExporterModule,
+        EstimateModule,
+        ContractsModule,
+        CustomersModule
     ],
     declarations: [
         SaasComponent, 
@@ -42,12 +46,10 @@ import { EstimateProjectComponent } from './estimate/estimate-project/estimate-p
         ListProjectsComponent,
         LandingPageComponent,
         ManagerProjectsComponent,
-        CustomersComponent,
-        ListCustomersComponent,
         PartnersComponent,
         ListPartnersComponent,
-        EstimateComponent,
-        EstimateProjectComponent
+        // ContractsComponent,
+        // MyContractsComponent
     ]
 })
 export class SaasModule { }

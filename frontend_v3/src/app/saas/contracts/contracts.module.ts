@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
-import { MdModule } from './../../example/md/md.module';
+import { MdModule } from 'src/app/example/md/md.module';
 import { MaterialModule } from 'src/app/app.module';
 
-import { EstimateComponent } from './estimate.component';
-import { EstimateProjectComponent } from './estimate-project/estimate-project.component';
+import { ContractsComponent } from './contracts.component';
+import { MyContractsComponent } from './my-contracts/my-contracts.component';
+import { SampleContractsComponent } from './sample-contracts/sample-contracts.component';
 
 @NgModule({
     declarations: [
-        EstimateComponent,
-        EstimateProjectComponent
+        ContractsComponent,
+        MyContractsComponent,
+        SampleContractsComponent
     ],
     imports: [
         CommonModule,
@@ -22,5 +24,4 @@ import { EstimateProjectComponent } from './estimate-project/estimate-project.co
         NgxMaskModule.forChild(),
     ]
 })
-export class EstimateModule { }
-
+export class ContractsModule { }
