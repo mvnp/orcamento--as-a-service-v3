@@ -4,9 +4,20 @@ import { CommonModule } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
 import { MaterialModule } from 'src/app/app.module';
 import { MdModule } from './../../example/md/md.module';
+import { MatTableExporterModule } from 'mat-table-exporter';
+
+import { ProjectsComponent } from './projects.component';
+import { ListProjectsComponent } from './list-projects/list-projects.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { ManagerProjectsComponent } from './manager-projects/manager-projects.component';
 
 @NgModule({
-    declarations: [],
+    declarations: [
+        ProjectsComponent,
+        ListProjectsComponent,
+        LandingPageComponent,
+        ManagerProjectsComponent,
+    ],
     imports: [
         CommonModule,
         FormsModule, 
@@ -14,6 +25,7 @@ import { MdModule } from './../../example/md/md.module';
         MaterialModule,
         MdModule,
         NgxMaskModule.forChild(),
+        MatTableExporterModule
     ]
 })
 export class ProjectsModule { }
