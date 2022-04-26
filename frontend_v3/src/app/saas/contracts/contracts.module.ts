@@ -8,12 +8,14 @@ import { MaterialModule } from 'src/app/app.module';
 import { ContractsComponent } from './contracts.component';
 import { MyContractsComponent } from './my-contracts/my-contracts.component';
 import { SampleContractsComponent } from './sample-contracts/sample-contracts.component';
+import { MySampleContractsComponent } from './my-sample-contracts/my-sample-contracts.component';
 
 @NgModule({
     declarations: [
         ContractsComponent,
         MyContractsComponent,
-        SampleContractsComponent
+        SampleContractsComponent,
+        MySampleContractsComponent
     ],
     imports: [
         CommonModule,
