@@ -1,0 +1,15 @@
+<form [formGroup]="form" (submit)="onSubmit($event);">
+    <div class="mb-6">
+        <label>Título do modelo</label>
+        <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="title" class="form-control" />
+            <mat-error *ngIf="submitted && form.get('title').hasError('required');">*Campo obrigatório</mat-error>    
+        </mat-form-field>
+    </div>
+    <div class="mb-6">
+        <mat-label>Conteúdo do contrato</mat-label>
+        <ckeditor [(ngModel)]="editorData" formControlName="editor" id="editor" [editor]="Editor" [config]="config" class="mt-3"></ckeditor>
+        <mat-error *ngIf="submitted && form.get('editor').hasError('required');">*Campo obrigatório</mat-error>
+    </div>
+    <button mat-buttom type="submit" class="btn btn-success btn-lg pull-right mt-3">Cadastrar modelo</button>
+</form>
