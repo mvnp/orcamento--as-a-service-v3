@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ContractsService {
 
@@ -16,5 +16,9 @@ export class ContractsService {
 
     getMyContractsSample() {
         return this.httpClient.get(`${this.baseUrl}/contract-properties`);
+    }
+
+    getMyContracts() {
+        return this.httpClient.get(`${this.baseUrl}/contracts`);
     }
 }

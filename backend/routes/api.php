@@ -126,7 +126,7 @@ Route::controller(ContractsPropertierController::class)->group(function() {
 Route::controller(ContractController::class)->group(function() {
     Route::prefix('v1')->group(function() {
         Route::get('/contracts',                    'index');
-        // Route::get('/budget/{project}',          'show');
+        Route::get('/contracts/{id}',               'show');
         // Route::post('/cronograma',               'store');
         // Route::put('/cronograma',                'update');
         // Route::delete('/cronograma/{id}',        'destroy');

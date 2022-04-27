@@ -15,11 +15,13 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function(Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('project_id')->constrained();
             $table->foreignId('partner_id')->constrained();
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('contracts_propertier_id')->constrained();
             $table->longText('html_contract')->nullable();
             $table->text('file_contract')->nullable();
+            $table->double('amount_of', 8, 2);
             $table->boolean('accepted');
             $table->dateTime('accepted_date');
             $table->boolean('status');

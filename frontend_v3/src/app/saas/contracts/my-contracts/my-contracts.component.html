@@ -1,1 +1,71 @@
-<p>my-contracts works!</p>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matTableExporter #exporter="matTableExporter" matSort matSortActive="title" matSortDirection="asc">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> ID </th>
+            <td mat-cell *matCellDef="let element" class="w_1"> #{{ element.id | number:"3.0-0" }} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="contract">
+            <th mat-header-cell *matHeaderCellDef class="w_1">  
+                <span> Contrato </span> 
+            </th>
+            <td mat-cell *matCellDef="let element" class="w_1"> {{ element.propertier.title }} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="customer">
+            <th mat-header-cell *matHeaderCellDef class="w_1">  
+                <span> Cliente </span> 
+            </th>
+            <td mat-cell *matCellDef="let element" class="w_1"> {{ element.customer.user.name }} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="amount_of">
+            <th mat-header-cell *matHeaderCellDef class="w_1">  
+                <span> Valor </span> 
+            </th>
+            <td mat-cell *matCellDef="let element" class="w_1"> {{ element.amount_of | currency:"BRL"}} </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="generate">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> Emitir </th>
+            <td mat-cell *matCellDef="let element" class="button-fit-content">
+                <button mat-raised-button class="btn btn-warning btn-sm" (click)="generateContractForCustomer(element.id);"> Emitir </button>
+            </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="accept">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> Aceitar </th>
+            <td mat-cell *matCellDef="let element" class="button-fit-content">
+                <button mat-raised-button class="btn btn-success btn-sm" (click)="acceptContractCustomer(element.id);"> Aceitar </button>
+            </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="download">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> Baixar </th>
+            <td mat-cell *matCellDef="let element" class="button-fit-content">
+                <button mat-raised-button class="btn btn-info btn-sm" (click)="downloadContract(element.id);"> Download </button>
+            </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="remove">
+            <th mat-header-cell *matHeaderCellDef class="w_1"> Remover </th>
+            <td mat-cell *matCellDef="let element" class="button-fit-content">
+                <button mat-raised-button class="btn btn-danger btn-sm" (click)="removeContract(element.id);"> Excluir </button>
+            </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons  aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

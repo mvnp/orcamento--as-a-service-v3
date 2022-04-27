@@ -16,7 +16,7 @@ class ContractController extends Controller
     public function index()
     {
         try {
-            $contracts = Contract::all();
+            $contracts = Contract::with(["customer.user", "partner.user", "propertier", "project"])->get();
             return Response::json(array('data' => $contracts), 200);
         } catch (\Exception $e) {
             return Response::json(array('error' => $e->getMessage()), 500);
@@ -50,9 +50,15 @@ class ContractController extends Controller
      * @param  \App\Models\Contract  $contract
      * @return \Illuminate\Http\Response
      */
-    public function show(Contract $contract)
+    // public function show(Contract $contract)
+    public function show($id)
     {
-        //
+        try {
+            $contracts = Contract::with(["customer.user", "partner.user", "propertier", "project"])->find($id);
+            return Response::json(array('data' => $contracts), 200);
+        } catch (\Exception $e) {
+            return Response::json(array('error' => $e->getMessage()), 500);
+        }
     }
 
     /**

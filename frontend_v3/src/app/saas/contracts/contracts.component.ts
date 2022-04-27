@@ -12,7 +12,7 @@ export class ContractsComponent implements OnInit {
 
     constructor(tabGroup: MatTabGroup) {
         const tabCount = tabGroup._tabs.length;
-        this.selectedIndex = 1;    
+        this.selectedIndex = 0;    
     }
 
     ngOnInit(): void {
