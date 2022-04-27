@@ -39,6 +39,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MdModule } from './example/md/md.module';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './example/shared/footer/footer.module';
@@ -88,7 +89,8 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
         MatToolbarModule,
         MatTooltipModule,
         MatNativeDateModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        CKEditorModule
     ],
     declarations: []
 })

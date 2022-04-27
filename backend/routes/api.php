@@ -1,14 +1,18 @@
 <?php
 
-use App\Http\Controllers\BudgetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectTaskController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContractController;
+use App\Http\Controllers\ContractsSampleController;
+use App\Http\Controllers\ContractsPropertierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +97,36 @@ Route::controller(BudgetController::class)->group(function() {
     Route::prefix('v1')->group(function() {
         // Route::get('/budgets',                   'index');
         Route::get('/budget/{project}',             'show');
+        // Route::post('/cronograma',               'store');
+        // Route::put('/cronograma',                'update');
+        // Route::delete('/cronograma/{id}',        'destroy');
+    });
+});
+
+Route::controller(ContractsSampleController::class)->group(function() {
+    Route::prefix('v1')->group(function() {
+        Route::get('/contract-samples',             'index');
+        // Route::get('/budget/{project}',          'show');
+        // Route::post('/cronograma',               'store');
+        // Route::put('/cronograma',                'update');
+        // Route::delete('/cronograma/{id}',        'destroy');
+    });
+});
+
+Route::controller(ContractsPropertierController::class)->group(function() {
+    Route::prefix('v1')->group(function() {
+        Route::get('/contract-properties',          'index');
+        // Route::get('/budget/{project}',          'show');
+        // Route::post('/cronograma',               'store');
+        // Route::put('/cronograma',                'update');
+        // Route::delete('/cronograma/{id}',        'destroy');
+    });
+});
+
+Route::controller(ContractController::class)->group(function() {
+    Route::prefix('v1')->group(function() {
+        Route::get('/contracts',                    'index');
+        // Route::get('/budget/{project}',          'show');
         // Route::post('/cronograma',               'store');
         // Route::put('/cronograma',                'update');
         // Route::delete('/cronograma/{id}',        'destroy');

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTabGroup } from '@angular/material/tabs';
 
 @Component({
     selector: 'app-contracts',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContractsComponent implements OnInit {
 
-    constructor() { }
+    public selectedIndex;
+
+    constructor(tabGroup: MatTabGroup) {
+        const tabCount = tabGroup._tabs.length;
+        this.selectedIndex = 1;    
+    }
 
     ngOnInit(): void {
     }

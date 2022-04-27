@@ -12,8 +12,8 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <mat-tab-group>
-                            <mat-tab label="Meus contratos">
+                        <mat-tab-group [(selectedIndex)]="selectedIndex">
+                            <mat-tab label="Contratos">
                                 <app-my-contracts></app-my-contracts>
                             </mat-tab>
                             <mat-tab label="Meus modelos">
@@ -21,6 +21,9 @@
                             </mat-tab>
                             <mat-tab label="Modelos do sistema">
                                 <app-sample-contracts></app-sample-contracts>
+                            </mat-tab>
+                            <mat-tab label="Criar modelo">
+                                <app-create-my-model></app-create-my-model>
                             </mat-tab>
                         </mat-tab-group>
                     </div>

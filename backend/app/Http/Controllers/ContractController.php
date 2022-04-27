@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contract;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class ContractController extends Controller
 {
@@ -14,7 +15,12 @@ class ContractController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $contracts = Contract::all();
+            return Response::json(array('data' => $contracts), 200);
+        } catch (\Exception $e) {
+            return Response::json(array('error' => $e->getMessage()), 500);
+        }
     }
 
     /**

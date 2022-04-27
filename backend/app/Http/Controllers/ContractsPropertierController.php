@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContractsPropertier;
 use Illuminate\Http\Request;
-use App\Models\ContractsSample;
 use Illuminate\Support\Facades\Response;
 
-class ContractsSampleController extends Controller
+class ContractsPropertierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,12 @@ class ContractsSampleController extends Controller
      */
     public function index()
     {
-        $contract_samples = ContractsSample::all();
-        return Response::json(array('data' => $contract_samples), 200);
+        try {
+            $contract_properties = ContractsPropertier::orderBy('title', 'asc')->get();
+            return Response::json(array('data' => $contract_properties), 200);
+        } catch (\Exception $e) {
+            return Response::json(array('error' => $e->getMessage()), 500);
+        }
     }
 
     /**
@@ -43,10 +47,10 @@ class ContractsSampleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ContractsSample  $contractsSample
+     * @param  \App\Models\ContractsPropertier  $contractsPropertier
      * @return \Illuminate\Http\Response
      */
-    public function show(ContractsSample $contractsSample)
+    public function show(ContractsPropertier $contractsPropertier)
     {
         //
     }
@@ -54,10 +58,10 @@ class ContractsSampleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ContractsSample  $contractsSample
+     * @param  \App\Models\ContractsPropertier  $contractsPropertier
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContractsSample $contractsSample)
+    public function edit(ContractsPropertier $contractsPropertier)
     {
         //
     }
@@ -66,10 +70,10 @@ class ContractsSampleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ContractsSample  $contractsSample
+     * @param  \App\Models\ContractsPropertier  $contractsPropertier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ContractsSample $contractsSample)
+    public function update(Request $request, ContractsPropertier $contractsPropertier)
     {
         //
     }
@@ -77,10 +81,10 @@ class ContractsSampleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ContractsSample  $contractsSample
+     * @param  \App\Models\ContractsPropertier  $contractsPropertier
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContractsSample $contractsSample)
+    public function destroy(ContractsPropertier $contractsPropertier)
     {
         //
     }

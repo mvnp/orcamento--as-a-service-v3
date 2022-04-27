@@ -55,6 +55,10 @@ table .button-fit-content {
     background: linear-gradient(60deg, #e53935, #db3834);
 }
 
+::ng-deep.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0;
+}
+
 /* ::ng-deep table > .mat-tab-label {
     height: 48px;
     padding: 0 20px;
