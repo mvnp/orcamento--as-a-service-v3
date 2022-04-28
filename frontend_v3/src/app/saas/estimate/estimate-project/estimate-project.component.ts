@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
@@ -23,6 +23,8 @@ declare var $: any;
 })
 export class EstimateProjectComponent implements OnInit {
 
+    @Input() idOrcamento: number;
+
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatTable) table: MatTable<any>;
@@ -40,8 +42,6 @@ export class EstimateProjectComponent implements OnInit {
     project;
     monthRewrite: Array<any> = [];
 
-    public idOrcamento;
-
     constructor(
         private _estimateService: EstimateService,
         private _loader: NgxSpinnerService,
@@ -53,24 +53,19 @@ export class EstimateProjectComponent implements OnInit {
 
     ngOnInit(): void {
         moment.locale('pt-br');
-        this.idOrcamento = this.route.snapshot.paramMap.get('id');
         if(this.idOrcamento && !isNaN(this.idOrcamento)){
             this.getSpecificEstimate(this.idOrcamento);
         } else {
-            swal.fire({
-                icon: "error",
-                title: "Opsss! Algo aconteceu.",
-                text: "O orçamento que está tentando acessar não existe! Se acha que é um erro, entre em contato com nosso suporte.",
-                buttonsStyling: false,
-                customClass: {
-                    confirmButton: "btn btn-danger",
-                },
-            });
+            // swal.fire({
+            //     icon: "error",
+            //     title: "Opsss! Algo aconteceu.",
+            //     text: "O orçamento que está tentando acessar não existe! Se acha que é um erro, entre em contato com nosso suporte.",
+            //     buttonsStyling: false,
+            //     customClass: {
+            //         confirmButton: "btn btn-danger",
+            //     },
+            // });
         }
-    }
-
-    ngAfterViewInit() {
-        // this.buildTable();
     }
     
     getSpecificEstimate(idOrcamento) {
@@ -97,7 +92,6 @@ export class EstimateProjectComponent implements OnInit {
                 this._loader.hide();
             }, complete: () => {
                 console.log("complete");
-                this._loader.hide();
             },
         });
     }

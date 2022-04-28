@@ -33,13 +33,13 @@ export const ROUTES: RouteInfo[] = [{
         type: 'link',
         icontype: 'dashboard'
     }, {
-        path: '/saas/custodaobra',
-        title: 'Custo da Obra',
+        path: '/saas/estimate',
+        title: 'Cronograma',
         type: 'link',
         icontype: 'dashboard'
     }, {
-        path: '/saas/cronograma',
-        title: 'Cronograma',
+        path: '/saas/custodaobra',
+        title: 'Custo da Obra',
         type: 'link',
         icontype: 'dashboard'
     }, {

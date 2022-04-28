@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { MatTabGroup } from '@angular/material/tabs';
+
+import { ProjectsService } from '../projects/projects.service';
 
 @Component({
     selector: 'app-estimate',
@@ -7,5 +11,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstimateComponent implements OnInit {
 
-    ngOnInit(): void {}  
+    public idOrcamento = 2;
+    public selectedIndex;
+
+    constructor(
+        private tabGroup: MatTabGroup, 
+        private _loader: NgxSpinnerService,
+        private _projectsService: ProjectsService
+    ) {
+        const tabCount = tabGroup._tabs.length;
+        this.selectedIndex = 0;
+    }
+
+    ngOnInit(): void {
+        this.getProjectsOfThisUser();
+    }
+
+    getProjectsOfThisUser() {
+        this._loader.show();
+        this._projectsService.getProjectsOfThisUser(this.idOrcamento).subscribe({
+            next: (projects: any) => {
+                this.verifyOneProjectAndRedirect(projects);
+            }, error: (error) => {
+                console.log(error);
+                this._loader.hide();
+            }, complete: () => {
+                console.log("complete");
+            },
+        });
+    }
+
+    verifyOneProjectAndRedirect(project)
+    {
+        if(project.data == undefined) { 
+            this._loader.hide();
+            return false;
+        }
+
+        if(project.data.length > 1) { 
+            this._loader.hide();
+            return false;
+        }
+        
+        this.idOrcamento = 3;
+        this.selectedIndex = 1;
+    }
+
+    userHasOneProject(event) {
+        console.log(event);
+        this.getProjectsOfThisUser();
+        // if(event == true) {
+        //     this.getProjectsOfThisUser();
+        // }
+    }
 }

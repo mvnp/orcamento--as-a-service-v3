@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ProjectsService {
 
@@ -12,5 +12,9 @@ export class ProjectsService {
 
     getAllProjects() {
         return this.httpClient.get(`${this.baseUrl}/projects`);
+    }
+
+    getProjectsOfThisUser(user) {
+        return this.httpClient.get(`${this.baseUrl}/project/${user}`);
     }
 }
