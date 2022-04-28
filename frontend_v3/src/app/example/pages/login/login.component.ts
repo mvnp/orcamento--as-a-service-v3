@@ -46,9 +46,9 @@ export class LoginComponent implements OnInit, OnDestroy {
             body.classList.remove('nav-open');
         }
     }
-    ngOnDestroy(){
-      const body = document.getElementsByTagName('body')[0];
-      body.classList.remove('login-page');
-      body.classList.remove('off-canvas-sidebar');
+    ngOnDestroy() {
+        const body = document.getElementsByTagName('body')[0];
+        body.classList.remove('login-page');
+        body.classList.remove('off-canvas-sidebar');
     }
 }

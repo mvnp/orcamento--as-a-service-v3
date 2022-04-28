@@ -7,7 +7,7 @@ import { DashboardComponent } from './example/dashboard/dashboard.component';
 export const AppRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'auth/login',
         pathMatch: 'full',
     }, {
         path: '',
@@ -58,7 +58,7 @@ export const AppRoutes: Routes = [
         path: '',
         component: AuthLayoutComponent,
         children: [{
-            path: 'pages',
+            path: 'auth',
             loadChildren: () => import('./example/pages/pages.module').then(m => m.PagesModule)
         }]
     },

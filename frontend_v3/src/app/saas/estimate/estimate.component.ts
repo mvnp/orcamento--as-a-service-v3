@@ -31,37 +31,37 @@ export class EstimateComponent implements OnInit {
         this._loader.show();
         this._projectsService.getProjectsOfThisUser(this.idOrcamento).subscribe({
             next: (projects: any) => {
-                this.verifyOneProjectAndRedirect(projects);
+                if(this.selectedIndex == 0) {
+                    this.verifyOneProjectAndRedirect(projects);
+                }
             }, error: (error) => {
                 console.log(error);
                 this._loader.hide();
             }, complete: () => {
                 console.log("complete");
+                this._loader.hide();
             },
         });
     }
 
-    verifyOneProjectAndRedirect(project)
-    {
+    verifyOneProjectAndRedirect(project) {
         if(project.data == undefined) { 
+            this._loader.hide();
+            return false;
+        } else if(project.data.length > 1) {
             this._loader.hide();
             return false;
         }
 
-        if(project.data.length > 1) { 
-            this._loader.hide();
-            return false;
-        }
-        
         this.idOrcamento = 3;
         this.selectedIndex = 1;
     }
 
     userHasOneProject(event) {
+        // verify event
         console.log(event);
-        this.getProjectsOfThisUser();
-        // if(event == true) {
-        //     this.getProjectsOfThisUser();
-        // }
+        if(this.selectedIndex == 1) {
+            this.getProjectsOfThisUser();
+        }
     }
 }
