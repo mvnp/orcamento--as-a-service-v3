@@ -44,22 +44,23 @@ export class EstimateComponent implements OnInit {
         });
     }
 
-    verifyOneProjectAndRedirect(project) {
-        if(project.data == undefined) { 
+    verifyOneProjectAndRedirect(project) 
+    {
+        if(project.data == undefined) {
             this._loader.hide();
             return false;
-        } else if(project.data.length > 1) {
+        } 
+        
+        if(project.data.length > 1) {
             this._loader.hide();
             return false;
         }
-
+        
         this.idOrcamento = 118;
         this.selectedIndex = 1;
     }
 
     userHasOneProject(event) {
-        // verify event
-        console.log(event);
         if(this.selectedIndex == 1) {
             this.getProjectsOfThisUser();
         }
