@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -9,11 +8,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { EstimateService } from '../estimate.service';
 
+import { DialogPaymentObject } from './dialog-payment/dialogPaymentObject';
+import { DialogPaymentComponent } from './dialog-payment/dialog-payment.component';
+
 import * as moment from 'moment';
 import swal from 'sweetalert2';
-import { DialogMessageObject } from 'src/app/dialog-message/dialogMessageObject';
-import { DialogMessageComponent } from 'src/app/dialog-message/dialog-message.component';
-
 declare var $: any;
 
 @Component({
@@ -45,7 +44,6 @@ export class EstimateProjectComponent implements OnInit {
     constructor(
         private _estimateService: EstimateService,
         private _loader: NgxSpinnerService,
-        private route: ActivatedRoute,
         private dialog: MatDialog
     ) {
         this.dataProjectTasks = "";
@@ -108,20 +106,44 @@ export class EstimateProjectComponent implements OnInit {
     }
 
     getDataOfTask(project_id, task_id, month){
-        let objTask = [{
+        let objTask: any = {
             'project_id': project_id,
             'date_task_executed': month,
             'project_department_service_id': task_id
-        }];
+        };
 
-        this._estimateService.getDataOfSpecificTask(objTask).subscribe(
-            (task: any) => {
-                console.log("obj", objTask);
-                console.log("trazendo a task", task);
-            }, (error: any) => {
+        this._estimateService.getDataOfSpecificTask(objTask).subscribe({
+            next: (payments: any) => { 
+                let dialogData: DialogPaymentObject = {
+                    title: 'Liberar Pagamentos',
+                    text: 'Você não possui permissão para acessar esta tela.',
+                    btnTrue: 'Solicitar pagamento',
+                    btnFalse: 'Cancelar',
+                    payments: payments.data,
+                    task: objTask
+                }
+
+                this.dialog.open(DialogPaymentComponent, {
+                    maxHeight: '75%',
+                    maxWidth: '30rem',
+                    data: dialogData
+                }).afterClosed().subscribe(
+                    (response: any) => {
+                      // faz alguma coisa com a resposta do treco
+                    }
+                );
+
+
+
+
+            }, error: (error: any) => {
                 console.log(error);
+                this._loader.hide();
+            }, complete: () => {
+                console.log("complete");
+                this._loader.hide();
             }
-        );
+        });
     }
 }
 

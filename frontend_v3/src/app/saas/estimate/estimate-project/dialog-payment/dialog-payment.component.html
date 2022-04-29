@@ -1,0 +1,35 @@
+<form id="mat-dialog-modal" class="main-content" [formGroup]="form">
+    <div class="row">
+        <div class="col-12 col-md-12">
+            <div class="content top">
+                <div class="row">
+                    <div class="col-11 col-md-11">
+                        <h3>{{ data.title }}</h3>
+                    </div>
+                    <div class="col-1 col-md-1 close-div">
+                        <button type="button" class="close" (click)="closeModal();">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="content body">
+                <div class="row mt-4 mb-3">
+                    <div class="col-12">
+                        <h4 style="font-weight:500" class="text-center"><strong>{{ data.payments[0].description_of_service }}</strong></h4>
+                        <h5 class="text-center"><strong>{{ data.payments[0].date_task_executed | date:"MMMM y" | uppercase }}</strong></h5>        
+                    </div>
+                </div>
+                <p>Este processo autoriza uma solicitação de pagamento referente a atividade que selecionou na tela anterior e ao mês corrente. </p>
+                <p>Uma vez esta solicitação de pagamento enviada, o cliente receberá uma notificação para autorizar o pagamento afirmando que a atividade foi finalizada.</p>
+                <p>Então, na tela de pagamentos, poderá gerar um boleto ou qualquer outro documento para que ele efetue o pagamento.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12 d-flex justify-content-end">
+            <button type="button" class="btn btn-success me-3" (click)="onYesClick();">{{ data.btnTrue }}</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onNoClick();">{{ data.btnFalse }}</button>
+        </div>
+    </div>
+</form>

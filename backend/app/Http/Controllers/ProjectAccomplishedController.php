@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProjectAccomplished;
 use Illuminate\Http\Request;
+use App\Models\ProjectAccomplished;
 
 class ProjectAccomplishedController extends Controller
 {
+    private $requestPayment;
+
+    public function __construct(ProjectAccomplished $requestPayment) {
+        $this->requestPayment = $requestPayment;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +41,13 @@ class ProjectAccomplishedController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+			$requestPay = $request->all();
+			$this->requestPayment->create($requestPay);
+			return response()->json(['data' => 'Solicitação criada com sucesso!'], 201);
+		} catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+		}
     }
 
     /**

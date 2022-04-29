@@ -58,6 +58,17 @@ table .button-fit-content {
 ::ng-deep.mat-form-field-appearance-outline.mat-form-field-type-mat-input .mat-form-field-infix { padding: 0 }
 ::ng-deep.mat-form-field-appearance-outline.mat-form-field-type-mat-select .mat-form-field-infix { padding: 1em 0 0.4em 0 }
 
+/* Modals */
+#mat-dialog-modal .close > span {
+    width: 24px!important;
+    padding: 2px 10px!important;
+    border-radius: 50%!important;
+    border: 1px solid #ccc!important;
+}
+
+#mat-dialog-modal h3 { margin: 0 0 10px }
+#mat-dialog-modal .content.top { border-bottom: 1px solid #f7f7f7 }
+
 /* ::ng-deep table > .mat-tab-label {
     height: 48px;
     padding: 0 20px;

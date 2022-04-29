@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -47,7 +47,6 @@ import { NavbarModule } from './example/shared/navbar/navbar.module';
 import { FixedpluginModule} from './example/shared/fixedplugin/fixedplugin.module';
 import { AdminLayoutComponent } from './example/layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './example/layouts/auth/auth-layout.component';
-import { DialogMessageComponent } from 'src/app/dialog-message/dialog-message.component';
 
 import { NgxSpinnerModule } from "ngx-spinner";
 import { AppComponent } from './app.component';
@@ -56,6 +55,8 @@ import { AppRoutes } from './app.routing';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
+import localePt from '@angular/common/locales/pt';
+registerLocaleData(localePt, 'pt');
 
 @NgModule({
     exports: [
@@ -120,12 +121,18 @@ export class MaterialModule {}
     declarations: [
         AppComponent,
         AdminLayoutComponent,
-        AuthLayoutComponent,
-        DialogMessageComponent
+        AuthLayoutComponent
     ],
     providers : [
         MatNativeDateModule,
-        Title
+        Title,
+        {
+            provide: LOCALE_ID,
+            useValue: 'pt'
+        }, {
+            provide: DEFAULT_CURRENCY_CODE,
+            useValue: 'BRL'
+        }
     ],
     bootstrap: [AppComponent]
 })

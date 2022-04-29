@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
 import { MdModule } from './../../example/md/md.module';
 import { MaterialModule } from 'src/app/app.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { MatTableExporterModule } from 'mat-table-exporter';
 
@@ -12,6 +13,7 @@ import { EstimateProjectComponent } from './estimate-project/estimate-project.co
 import { EstimatePaymentsComponent } from './estimate-payments/estimate-payments.component';
 import { EstimatePartnersComponent } from './estimate-partners/estimate-partners.component';
 import { EstimateListComponent } from './estimate-list/estimate-list.component';
+import { DialogPaymentComponent } from './estimate-project/dialog-payment/dialog-payment.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +21,8 @@ import { EstimateListComponent } from './estimate-list/estimate-list.component';
         EstimateProjectComponent,
         EstimatePaymentsComponent,
         EstimatePartnersComponent,
-        EstimateListComponent
+        EstimateListComponent,
+        DialogPaymentComponent
     ],
     imports: [
         CommonModule,
@@ -27,9 +30,11 @@ import { EstimateListComponent } from './estimate-list/estimate-list.component';
         ReactiveFormsModule,
         MaterialModule,
         MdModule,
+        MatDialogModule,
         NgxMaskModule.forChild(),
         MatTableExporterModule
-    ]
+    ],
+    entryComponents: []
 })
 export class EstimateModule { }
 

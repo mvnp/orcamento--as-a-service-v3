@@ -19,8 +19,12 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
-        return Response::json(array('data' => $projects), 200);
+        // $projects = Project::all();
+        // return Response::json(array('data' => $projects), 200);
+
+        // $projects = Project::where("id", 118)->get();
+        // $exec = Project::generateTasksOfProjects($projects);
+        // return Response::json(array('data' => $exec), 200);
     }
 
     /**
@@ -105,8 +109,11 @@ class ProjectController extends Controller
      */
     private function projectGenerator()
     {
-        // $projects = Project::all();
+        $projects = Project::find(118);
         // $exec = Project::generateTasksOfProjects($projects);
-        // return Response::json(array('data' => $exec), 200);
+
+
+
+        return Response::json(array('data' => $projects->toJson()), 200);
     }
 }

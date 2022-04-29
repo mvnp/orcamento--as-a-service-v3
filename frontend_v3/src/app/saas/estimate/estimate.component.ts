@@ -11,7 +11,7 @@ import { ProjectsService } from '../projects/projects.service';
 })
 export class EstimateComponent implements OnInit {
 
-    public idOrcamento = 2;
+    public idOrcamento = 118;
     public selectedIndex;
 
     constructor(
@@ -53,7 +53,7 @@ export class EstimateComponent implements OnInit {
             return false;
         }
 
-        this.idOrcamento = 3;
+        this.idOrcamento = 118;
         this.selectedIndex = 1;
     }
 

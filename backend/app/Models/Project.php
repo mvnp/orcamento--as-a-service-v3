@@ -17,38 +17,39 @@ class Project extends Model
      *
      * @return void
      */
-    // public static function generateTasksOfProjects($projects)
-    // {
-    //     $departments = ProjectDepartment::with('services')->get();
-    //     $saveProject = new ProjectTask;
+    public static function generateTasksOfProjects($projects)
+    {
+        // $departments = ProjectDepartment::with('services')->get();
+        // $saveProject = new ProjectTask;
 
-    //     foreach ($projects as $project) {
-    //         $months_of_project = CarbonPeriod::create($project->started_at, '1 month', $project->ended_at);
-    //         foreach ($departments as $dep) {
-    //             foreach ($dep->services as $service) {
-    //                 foreach ($months_of_project as $month)
-    //                 {
-    //                     $ins = [
-    //                         "project_id" => $project->id,
-    //                         "project_department_id" => $dep->id,
-    //                         "project_department_service_id" => $service->id,
-    //                         "description_of_service" => trim($service->description),
-    //                         "percent_of_department" => $dep->percent,
-    //                         "percent_of_service" => $service->percent,
-    //                         "total_amount" => $project->amount,
-    //                         "total_amount_task" => (($project->amount) * ($dep->percent / 100)),
-    //                         "status_partner_ended" => false,
-    //                         "status_customer_ended" => false,
-    //                         "date_task_executed" => $month->format("Y-m-d 12:00:00"),
-    //                         "date_request_payment" => Carbon::now(),
-    //                     ];
+        // $tasks = [];
+        // foreach ($projects as $project) {
+        //     $months_of_project = CarbonPeriod::create($project->started_at, '1 month', $project->ended_at);
+        //     foreach ($departments as $dep) {
+        //         foreach ($dep->services as $service) {
+        //             foreach ($months_of_project as $month)
+        //             {
+        //                 $ins = [
+        //                     "project_id" => $project->id,
+        //                     "project_department_id" => $dep->id,
+        //                     "project_department_service_id" => $service->id,
+        //                     "description_of_service" => trim($service->description),
+        //                     "percent_of_department" => $dep->percent,
+        //                     "percent_of_service" => $service->percent,
+        //                     "total_amount" => $project->amount,
+        //                     "total_amount_task" => (($project->amount)*((($dep->percent*$service->percent)/100)/100)),
+        //                     "status_partner_ended" => false,
+        //                     "status_customer_ended" => false,
+        //                     "date_task_executed" => $month->format("Y-m-d 12:00:00"),
+        //                     "date_request_payment" => Carbon::now(),
+        //                 ];
 
-    //                     $saveProject->create($ins);
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+        //                 $saveProject->create($ins);
+        //             }
+        //         }
+        //     }
+        // }
+    }
 
     public static function getTimeOfProject($project_id) {
         $months = [];

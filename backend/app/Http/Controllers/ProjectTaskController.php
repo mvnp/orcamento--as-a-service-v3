@@ -15,17 +15,15 @@ class ProjectTaskController extends Controller
      */
     public function index(Request $req)
     {
-        // if($req->project_id && $req->project_department_service_id && $req->date_task_executed) {
-        //     $task = ProjectTask::where([
-        //         'project_id' => $req->project_id,
-        //         'project_department_service_id' => $req->project_department_service_id,
-        //         'date_task_executed' => $req->date_task_executed,
-        //     ])->get();
+        if($req->project_id && $req->project_department_service_id && $req->date_task_executed) {
+            $task = ProjectTask::where([
+                'project_id' => $req->project_id,
+                'project_department_service_id' => $req->project_department_service_id,
+                'date_task_executed' => $req->date_task_executed,
+            ])->get();
+        }
 
-
-        // }
-
-        return Response::json(array('data' => $req->all()), 200);
+        return Response::json(array('data' => $task), 200);
     }
 
     /**

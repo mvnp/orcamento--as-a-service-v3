@@ -36,7 +36,7 @@ class ProjectTask extends Model
                 $service['months'] = ProjectTask::where([
                     "project_id" => $project,
                     "project_department_service_id" => $service->id
-                ])->get();
+                ])->with('accomplisheds')->get();
             endforeach;
         endforeach;
 
@@ -57,5 +57,9 @@ class ProjectTask extends Model
 
     public function tasks(){
         return $this->belongsTo(ProjectDepartmentService::class);
+    }
+
+    public function accomplisheds() {
+        return $this->hasOne(ProjectAccomplished::class);
     }
 }

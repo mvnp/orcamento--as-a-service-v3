@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\ContractsSampleController;
 use App\Http\Controllers\ContractsPropertierController;
+use App\Http\Controllers\ProjectAccomplishedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,5 +131,12 @@ Route::controller(ContractController::class)->group(function() {
         // Route::post('/cronograma',               'store');
         // Route::put('/cronograma',                'update');
         // Route::delete('/cronograma/{id}',        'destroy');
+    });
+});
+
+
+Route::controller(ProjectAccomplishedController::class)->group(function() {
+    Route::prefix('v1')->group(function(){
+        Route::post('/request-payment', 'store');
     });
 });
