@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProjectAccomplished;
+use App\Models\ProjectTask;
 
 class ProjectAccomplishedController extends Controller
 {
@@ -18,9 +19,14 @@ class ProjectAccomplishedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        try {
+            $accomplisheds = ProjectAccomplished::with('task')->where('project_id', 118)->get();
+            return response()->json(['data' => $accomplisheds], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -41,10 +47,20 @@ class ProjectAccomplishedController extends Controller
      */
     public function store(Request $request)
     {
+        $task = new ProjectTask;
+
         try {
 			$requestPay = $request->all();
-			$this->requestPayment->create($requestPay);
-			return response()->json(['data' => 'Solicitação criada com sucesso!'], 201);
+			$pay = $this->requestPayment->create($requestPay);
+
+            if($pay) {
+                $payment = [
+                    'total_amount_to_pay' => $request->total_amount,
+                    'status_partner_ended' => true
+                ];
+                $task::where('id', $request->project_task_id)->update($payment);
+                return response()->json(['data' => 'A solicitação de pagamento foi enviada com sucesso.'], 201);
+            }
 		} catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
 		}
@@ -56,7 +72,7 @@ class ProjectAccomplishedController extends Controller
      * @param  \App\Models\ProjectAccomplished  $projectAccomplished
      * @return \Illuminate\Http\Response
      */
-    public function show(ProjectAccomplished $projectAccomplished)
+    public function show($id)
     {
         //
     }

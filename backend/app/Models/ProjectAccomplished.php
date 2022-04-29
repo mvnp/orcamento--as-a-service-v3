@@ -9,7 +9,16 @@ class ProjectAccomplished extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['project_task_id', 'total_amount', 'is_payed'];
+    protected $fillable = [
+        'project_id',
+        'project_task_id',
+        'total_amount',
+        'is_payed'
+    ];
 
     public $timestamps = true;
+
+    public function task(){
+        return $this->belongsTo(ProjectTask::class, 'project_task_id');
+    }
 }

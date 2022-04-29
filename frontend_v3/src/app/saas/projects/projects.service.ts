@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -16,5 +16,15 @@ export class ProjectsService {
 
     getProjectsOfThisUser(user) {
         return this.httpClient.get(`${this.baseUrl}/project/${user}`);
+    }
+
+    getAllAccomplisheds(cronograma) {
+        let params = new HttpParams().set('project_id', cronograma);
+        return this.httpClient.get(`${this.baseUrl}/accomplisheds`, { params });
+    }
+
+    getAllTasksGrouped(cronograma) {
+        let params = new HttpParams().set('project_id', cronograma);
+        return this.httpClient.get(`${this.baseUrl}/project-task`, { params });
     }
 }

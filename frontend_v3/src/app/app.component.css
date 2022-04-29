@@ -17,6 +17,12 @@ table .button-fit-content {
     padding: 0 5px 
 }
 
+::ng-deep th.mat-header-cell:first-of-type,
+::ng-deep td.mat-footer-cell:first-of-type,
+::ng-deep td.mat-cell:first-of-type {
+    padding-left: 0!important;
+}
+
 ::ng-deeo.mat-form-field-label {
     font-size: 50px!important;
 }

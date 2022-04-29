@@ -27,6 +27,7 @@ export class DialogPaymentComponent implements OnInit {
     ){
         console.log("recebendo >>>> ", data);
         this.form = this.fb.group({
+            'project_id': [this.data.payments[0].project_id, Validators.required],
             'project_task_id': [this.data.payments[0].id, Validators.required],
             'total_amount': [this.data.payments[0].total_amount_task, Validators.required],
             'is_payed': [false, Validators.required],

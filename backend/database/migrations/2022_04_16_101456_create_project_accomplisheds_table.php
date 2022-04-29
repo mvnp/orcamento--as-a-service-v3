@@ -15,6 +15,7 @@ class CreateProjectAccomplishedsTable extends Migration
     {
         Schema::create('project_accomplisheds', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('project_id')->constrained();
             $table->foreignId('project_task_id')->unique()->constrained();
             $table->double('total_amount', 8, 2);
             $table->boolean('is_payed')->default(false);

@@ -137,6 +137,7 @@ Route::controller(ContractController::class)->group(function() {
 
 Route::controller(ProjectAccomplishedController::class)->group(function() {
     Route::prefix('v1')->group(function(){
+        Route::get('/accomplisheds', 'index');
         Route::post('/request-payment', 'store');
     });
 });

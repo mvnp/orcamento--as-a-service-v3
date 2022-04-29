@@ -16,6 +16,7 @@ class CreateProjectTasksTable extends Migration
         Schema::create('project_tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('project_id')->constrained();
+            $table->foreignId('partner_id')->nullable()->constrained();
             $table->foreignId('project_department_id')->constrained();
             $table->foreignId('project_department_service_id')->constrained();
             $table->text("description_of_service");
