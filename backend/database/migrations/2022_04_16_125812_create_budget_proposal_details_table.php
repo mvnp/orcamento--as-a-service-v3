@@ -34,5 +34,7 @@ class CreateBudgetProposalDetailsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('budget_proposal_details');
+        # DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        # DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

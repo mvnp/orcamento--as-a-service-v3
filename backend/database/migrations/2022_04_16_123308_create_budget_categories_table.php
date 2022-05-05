@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateBudgetCategoriesTable extends Migration
@@ -15,7 +16,8 @@ class CreateBudgetCategoriesTable extends Migration
     {
         Schema::create('budget_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('description');
+            $table->string('name');
+            $table->string('slug');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
@@ -29,5 +31,7 @@ class CreateBudgetCategoriesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('budget_categories');
+        # DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        # DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

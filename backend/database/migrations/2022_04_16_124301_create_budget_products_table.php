@@ -31,5 +31,7 @@ class CreateBudgetProductsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('budget_products');
+        # DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        # DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
