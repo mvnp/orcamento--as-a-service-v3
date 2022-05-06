@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BudgetCategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -139,5 +140,15 @@ Route::controller(ProjectAccomplishedController::class)->group(function() {
     Route::prefix('v1')->group(function(){
         Route::get('/accomplisheds', 'index');
         Route::post('/request-payment', 'store');
+    });
+});
+
+Route::controller(BudgetCategoryController::class)->group(function() {
+    Route::prefix('v1')->group(function() {
+        Route::get('/budget-categories',                'index');
+        // Route::get('/budget-categories/{id}',        'show');
+        // Route::post('/budget-categories',            'store');
+        // Route::put('/budget-categories',             'update');
+        // Route::delete('/budget-categories/{id}',     'destroy');
     });
 });

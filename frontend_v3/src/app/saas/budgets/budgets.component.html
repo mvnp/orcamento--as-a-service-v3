@@ -1,1 +1,28 @@
-<p>budgets works!</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon card-header-rose">
+                        <div class="card-icon">
+                            <i class="material-icons">perm_identity</i>
+                        </div>
+                        <h4 class="card-title">Gestão de Orçamentos
+                            <small class="category">&nbsp;</small>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <mat-tab-group>
+                            <mat-tab label="Categorias">
+                                <app-budgets-categories></app-budgets-categories>
+                            </mat-tab>
+                            <mat-tab label="Orçamentos aceitos">
+                                <app-budgets-accepted></app-budgets-accepted>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

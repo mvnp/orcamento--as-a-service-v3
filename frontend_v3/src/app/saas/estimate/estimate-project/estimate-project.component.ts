@@ -112,7 +112,7 @@ export class EstimateProjectComponent implements OnInit {
             'project_department_service_id': task_id
         };
 
-        this._estimateService.getDataOfSpecificTask(objTask).subscribe({
+        this._estimateService.getDataOfSpecificTask(objTask).subscribe({ 
             next: (payments: any) => { 
                 let dialogData: DialogPaymentObject = {
                     title: 'Liberar Pagamentos',
@@ -125,7 +125,7 @@ export class EstimateProjectComponent implements OnInit {
 
                 this.dialog.open(DialogPaymentComponent, {
                     maxHeight: '75%',
-                    maxWidth: '30rem',
+                    width: '30rem',
                     data: dialogData
                 }).afterClosed().subscribe(
                     (response: any) => {

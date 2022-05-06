@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BudgetCategory;
+use Exception;
 use Illuminate\Http\Request;
 
 class BudgetCategoryController extends Controller
@@ -14,7 +15,15 @@ class BudgetCategoryController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $budget_categories = BudgetCategory::all();
+            return response()->json(['data' => $budget_categories], 200);
+
+            throw new Exception("As categorias não foram carregadas. Atualize a página ou contate o administrador do sistema.", 1);
+        }
+        catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 400);
+        }
     }
 
     /**

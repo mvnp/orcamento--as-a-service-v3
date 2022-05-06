@@ -15,12 +15,11 @@ import { EstimateModule } from './estimate/estimate.module';
 import { CustomersModule } from './customers/customers.module';
 import { PartnersModule } from './partners/partners.module';
 import { ProjectsModule } from './projects/projects.module';
-import { BudgetsComponent } from './budgets/budgets.component';
+import { BudgetsModule } from './budgets/budgets.module';
 
 @NgModule({
     declarations: [
-        SaasComponent,
-        BudgetsComponent
+        SaasComponent
     ],
     imports: [
         CommonModule,
@@ -35,7 +34,8 @@ import { BudgetsComponent } from './budgets/budgets.component';
         ContractsModule,
         CustomersModule,
         PartnersModule,
-        ProjectsModule
+        ProjectsModule,
+        BudgetsModule
     ]
 })
 export class SaasModule { }

@@ -9,6 +9,8 @@ class Partner extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id', 'budget_category_id'];
+
     public function user() {
         return $this->hasOne(User::class, 'id', 'user_id');
     }

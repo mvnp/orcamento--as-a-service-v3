@@ -16,8 +16,7 @@ class CreateBudgetProposalsTable extends Migration
         Schema::create('budget_proposals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('budget_id')->constrained();
-            $table->foreignId('customer_id')->constrained();
-            $table->foreignId('partner_id')->constrained();
+            $table->text('pdf_proposal');
             $table->boolean('accepted')->default(false);
             $table->timestamps();
         });

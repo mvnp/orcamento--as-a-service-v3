@@ -1,0 +1,20 @@
+@import url('../../../app.component.css');
+
+::ng-deep#mdoal-orcamentos p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+::ng-deep#mdoal-orcamentos p strong {
+    font-weight: 500;
+    color: #000!important;
+}
+
+::ng-deep#mdoal-orcamentos p a {
+    color: #000!important;
+}
+
+::ng-deep#mdoal-orcamentos .buttons-to {
+    align-self: center;
+}

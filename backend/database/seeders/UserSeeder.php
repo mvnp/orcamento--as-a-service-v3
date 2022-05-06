@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        foreach (range(1, 100) as $index){
+        foreach (range(1, 18000) as $index){
             User::create([
                 'name' => $this->faker->name(),
                 'email' => $this->faker->unique()->safeEmail(),

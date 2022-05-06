@@ -25,7 +25,7 @@ import { SaasModule } from './../../saas/saas.module';
         NgxMaskModule.forChild(),
         CronogramaModule,
         BudgetModule,
-        SaasModule
+        SaasModule,
     ],
     declarations: [DashboardComponent]
 })

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Partner;
+use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
@@ -15,8 +17,15 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $partner = Partner::with('user')->get();
-        return Response::json(array('data' => $partner), 200);
+        try {
+            $partner = Partner::with('user')->get();
+            return Response::json(array('data' => $partner), 200);
+
+            throw new Exception("Erro ao tentar carregar os parceiros. Atualize a págiona ou entre em contato com administrador.", 1);
+        }
+        catch (\Exception $e) {
+            return Response::json(array('error' => $e->getMessage()), 401);
+        }
     }
 
     /**
@@ -48,8 +57,16 @@ class PartnerController extends Controller
      */
     public function show($partner)
     {
-        $showPartner = Partner::with('user', 'user.user_address', 'user.user_details', 'user.user_banking')->find($partner);
-        return Response::json(array('data' => $showPartner), 200);
+        try {
+            $showPartner = Partner::with('user', 'user.user_address', 'user.user_details', 'user.user_banking')->find($partner);
+            return Response::json(array('data' => $showPartner), 200);
+
+            throw new Exception("Não foi possível buscar o parceiro. Atualize a página ou contacte o administrador.", 1);
+        }
+        catch (\Exception $e) {
+            return Response::json(array('error' => $e->getMessage()), 200);
+        }
+
     }
 
     /**

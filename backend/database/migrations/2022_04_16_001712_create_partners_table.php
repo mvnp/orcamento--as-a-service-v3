@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreatePartnersTable extends Migration
@@ -16,6 +17,7 @@ class CreatePartnersTable extends Migration
         Schema::create('partners', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('budget_category_id')->constrained();
             $table->timestamps();
         });
     }
@@ -27,8 +29,8 @@ class CreatePartnersTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('partners');
-        # DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        # DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
