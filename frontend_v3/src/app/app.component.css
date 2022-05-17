@@ -64,6 +64,9 @@ table .button-fit-content {
 ::ng-deep.mat-form-field-appearance-outline.mat-form-field-type-mat-input .mat-form-field-infix { padding: 0 }
 ::ng-deep.mat-form-field-appearance-outline.mat-form-field-type-mat-select .mat-form-field-infix { padding: 1em 0 0.4em 0 }
 
+/* Modals Inputs */
+::ng-deep#mat-dialog-modal .mat-form-field-type-mat-input .mat-form-field-infix { padding: 0 0 12px 0!important }
+
 /* Modals */
 /* Modals */
 #mat-dialog-modal .close > span {
@@ -109,3 +112,60 @@ table .button-fit-content {
     color: #fff;
     font-weight: 700;
 } */
+
+/**
+ * Gambiarra Temporaria
+ */
+::ng-deep.main-panel .main-content {
+    margin-top: 15px;
+    padding: 0 15px 30px 15px!important;
+    min-height: calc(100vh - 123px);
+}
+
+/** Removendo scrool horizontal dentro do modal */
+::ng-deep.mat-tab-body-content {
+    overflow-x: hidden!important;
+}
+
+/** Ajustando ícones dos buttons */
+::ng-deep#mat-dialog-modal button .mat-icon {
+    font-size: 25px;
+    margin-right: 6px;
+    margin-top: -26px;
+}
+
+/** Ajustando ícones dos buttons */
+::ng-deep#mat-dialog-modal .mat-tab-label-content .mat-icon {
+    margin-top: -5px;
+    font-size: 26px;
+    margin-right: 12px;
+}
+
+/** Setup modal elements */
+::ng-deep#mat-dialog-modal .mat-form-field-appearance-outline .mat-form-field-outline { color: rgba(0,0,0,0.40) }
+::ng-deep#mat-dialog-modal .mat-form-field-wrapper { padding-bottom: 0.75em }
+::ng-deep#mat-dialog-modal label { margin-bottom: 0.2rem }
+
+/** Placeholders */
+::ng-deep#mat-dialog-modal ::-webkit-input-placeholder { font-style: italic; font-size: 14px; }
+::ng-deep#mat-dialog-modal :-moz-placeholder { font-style: italic; font-size: 14px; }
+::ng-deep#mat-dialog-modal ::-moz-placeholder { font-style: italic; font-size: 14px; } 
+::ng-deep#mat-dialog-modal :-ms-input-placeholder { font-style: italic; font-size: 14px; }
+
+/** Scrolls of table inside modal */
+::ng-deep#mat-dialog-modal .table-responsive { height: 296px }
+::ng-deep#mat-dialog-modal ::-webkit-scrollbar { width: 0px }
+
+/** mat error */
+::ng-deep#mat-dialog-modal .mat-error {
+    margin-top: 10px;
+    margin-right: -8px;
+    text-align: right;
+}
+
+/**  */
+::ng-deep td.mat-cell:first-of-type, 
+::ng-deep th.mat-header-cell:first-of-type, 
+::ng-deep td.mat-footer-cell:first-of-type {
+    padding-left: 0!important;
+}

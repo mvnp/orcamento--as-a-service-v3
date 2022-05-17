@@ -10,6 +10,7 @@ import { ProjectsComponent } from './projects.component';
 import { ListProjectsComponent } from './list-projects/list-projects.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ManagerProjectsComponent } from './manager-projects/manager-projects.component';
+import { CardProjectsComponent } from './card-projects/card-projects.component';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { ManagerProjectsComponent } from './manager-projects/manager-projects.co
         ListProjectsComponent,
         LandingPageComponent,
         ManagerProjectsComponent,
+        CardProjectsComponent,
     ],
     imports: [
         CommonModule,
@@ -25,7 +27,7 @@ import { ManagerProjectsComponent } from './manager-projects/manager-projects.co
         MaterialModule,
         MdModule,
         NgxMaskModule.forChild(),
-        MatTableExporterModule
+        MatTableExporterModule,
     ]
 })
 export class ProjectsModule { }

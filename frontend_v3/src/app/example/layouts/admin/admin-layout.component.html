@@ -1,11 +1,16 @@
-
 <div class="wrapper">
-    <div class="sidebar" data-color="white" data-background-color="red" data-image="./assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="white" data-background-color="black" data-image="./assets/img/sidebar-1.jpg">
         <app-sidebar-cmp></app-sidebar-cmp>
         <div class="sidebar-background" style="background-image: url(assets/img/sidebar-1.jpg)"></div>
     </div>
-    <div class="main-panel">
+    <div id="main-panel" class="main-panel">
+        <div id="for-navbar" class="for-navbar text-center" style="height: 22px; margin-bottom: -22px">
+            <a href="javascript: void(0)" (click)="collapseTop();">
+                <img src="https://cdn-icons-png.flaticon.com/512/58/58979.png" width="32" height="32" alt="" />
+            </a>
+        </div>
         <app-navbar-cmp></app-navbar-cmp>
+        <div id="apply-padding" style="height: 0px; padding-bottom: 20px">&nbsp;</div>
         <router-outlet></router-outlet>
         <div *ngIf="!isMap()">
             <app-footer-cmp></app-footer-cmp>

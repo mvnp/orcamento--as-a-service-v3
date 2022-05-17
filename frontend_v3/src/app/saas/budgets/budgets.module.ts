@@ -11,6 +11,7 @@ import { BudgetsComponent } from './budgets.component';
 import { BudgetsCategoriesComponent } from './budgets-categories/budgets-categories.component';
 import { BudgetsAcceptedComponent } from './budgets-accepted/budgets-accepted.component';
 import { BudgetsListComponent } from './budgets-list/budgets-list.component';
+import { BudgetsSendsComponent } from './budgets-sends/budgets-sends.component';
 
 import { NoCommasPipe } from './no-commas.pipe';
 
@@ -21,6 +22,7 @@ import { NoCommasPipe } from './no-commas.pipe';
         BudgetsAcceptedComponent,
         BudgetsListComponent,
         NoCommasPipe,
+        BudgetsSendsComponent,
     ],
     imports: [
         CommonModule,

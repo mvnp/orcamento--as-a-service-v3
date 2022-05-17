@@ -33,7 +33,7 @@
         <ng-container matColumnDef="sendBudget">
             <th mat-header-cell *matHeaderCellDef class="w_1"> Proposta </th>
             <td mat-cell *matCellDef="let element" class="button-fit-content"> 
-                <button mat-raised-button class="btn btn-primary btn-sm" (click)="sendBudgets(element.id)"> Enviar orçamento </button>
+                <button mat-raised-button class="btn btn-primary btn-sm" (click)="sendBudgets($event)"> Enviar orçamento </button>
             </td>
         </ng-container>
 
@@ -60,5 +60,3 @@
     <!-- Pagination -->
     <mat-paginator [pageSizeOptions]="[150, 25, 50]" showFirstLastButtons  aria-label="Select page of periodic elements"></mat-paginator>
 </div>
-
-

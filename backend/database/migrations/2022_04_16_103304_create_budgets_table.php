@@ -18,9 +18,11 @@ class CreateBudgetsTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId('project_id')->constrained();
             $table->foreignId('partner_id')->constrained();
+            $table->foreignId('budget_category_id')->constrained();
             $table->string('subject');
             $table->text('description');
             $table->text('pdf_proposal');
+            $table->double('price_accepted', 8, 2);
             $table->boolean('accepted')->default(false);
             $table->timestamps();
         });
@@ -33,8 +35,8 @@ class CreateBudgetsTable extends Migration
      */
     public function down()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('budgets');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        # DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        # DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

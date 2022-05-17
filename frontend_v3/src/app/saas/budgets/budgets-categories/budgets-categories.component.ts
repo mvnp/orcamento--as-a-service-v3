@@ -1,4 +1,3 @@
-import { DialogFunctionsObject } from './../../dialogFunctionsObject';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
@@ -8,6 +7,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { MatDialog } from '@angular/material/dialog';
 
 import { BudgetsListComponent } from '../budgets-list/budgets-list.component';
+import { BudgetsSendsComponent } from './../budgets-sends/budgets-sends.component';
+
+import { DialogFunctionsObject } from './../../dialogFunctionsObject';
 
 import { NgxSpinnerService } from 'ngx-spinner';
 import { BudgetsService } from '../budgets.service';
@@ -75,7 +77,26 @@ export class BudgetsCategoriesComponent implements OnInit, AfterViewInit {
                 // faz alguma coisa com a resposta do treco
                 console.log(response);
             }
-        );  
+        );
+    }
+
+    sendBudgets() {
+        this.dialog.open(BudgetsSendsComponent, {
+            disableClose: true,
+            maxHeight: '75%',
+            width: '45rem',
+            data: <DialogFunctionsObject> { 
+                title: 'Orçamento - Aquecimento de água',
+                text: 'Está enviando uma proposta ao cliente <strong>Marcos Nasc Pereira</strong> referente a solicitação de orçamento na categoria <strong>Aquecimento de água</strong>. Revise bem os dados, certifique-se de estar enviando o arquivo correto.',
+                btnTrue: 'Cadastrar',
+                btnFalse: 'Cancelar',
+            }
+        }).afterClosed().subscribe(
+            (response: any) => {
+                // faz alguma coisa com a resposta do treco
+                console.log(response);
+            }
+        );
     }
 
     applyFilter() {

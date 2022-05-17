@@ -15,4 +15,8 @@ export class BudgetsService {
     getAllBudgetsCategories(): Observable<any> {
         return this.httpClient.get(`${this.baseUrl}/budget-categories`);
     }
+
+    getAllBudgetsAccepted(): Observable<any> {
+        return this.httpClient.get(`${this.baseUrl}/temporario`);
+    }
 }

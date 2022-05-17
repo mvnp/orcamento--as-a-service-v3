@@ -29,8 +29,8 @@ export class BudgetsListComponent implements OnInit {
 
     setAcceptBudget(event) {
         swal.fire({
-            title: "Here's a message!",
-            text: 'Your file has been deleted.',
+            title: "Whoooww!",
+            text: 'Você aceitou o contrato com sucesso e está notificação aparecerá em breve para o parceiro.',
             buttonsStyling: false,
             icon: 'success',
             customClass:{
@@ -41,8 +41,8 @@ export class BudgetsListComponent implements OnInit {
 
     setRejectBudget(event) {
         swal.fire({
-            title: 'Deleted!',
-            text: 'Your file has been deleted.',
+            title: 'Nada feito!',
+            text: 'Você declinou esta oferta e o parceiro foi avisado. Não se preocupe, em breve outros orçamentos vão chegar.',
             buttonsStyling: false,
             icon: 'error',
             customClass:{

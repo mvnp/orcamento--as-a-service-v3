@@ -1,0 +1,46 @@
+<div class="main-content main-content-card">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <div class="of-cards row">
+                    <div *ngFor="let item of numberOfProjects; let i = index" class="mt-4 col-md-4">
+                        <div class="card card-product">
+                            <div class="card-header card-header-image" data-header-animation="false">
+                                <a href="javascript:void(0);">
+                                    <img class="img" [src]="item.src">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-actions text-center">
+                                    <button mat-raised-button type="button" class="btn btn-danger btn-link fix-broken-card"><i class="material-icons">build</i> Fix Header!</button>
+                                    <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="View" [matTooltipPosition]="'below'"><i class="material-icons">art_track</i></button>
+                                    <button mat-raised-button type="button" class="btn btn-success btn-link" matTooltip="Edit" [matTooltipPosition]="'below'"><i class="material-icons">edit</i></button>
+                                    <button mat-raised-button type="button" class="btn btn-danger btn-link" matTooltip="Remove" [matTooltipPosition]="'below'"><i class="material-icons">close</i></button>
+                                </div>
+                                <h4 class="card-title">
+                                    <a href="javascript:void(0);">Casa com currasqueira externa e piscina, garagem para dois carros</a>
+                                </h4>
+                                <div class="card-description">
+                                    The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price stats">
+                                    <!-- <h4>R$ 148.000,00t</h4> -->
+                                    <p class="card-category">
+                                        <i class="material-icons">place</i> São Paulo, SC
+                                    </p>
+                                </div>
+                                <div class="stats">
+                                    <button mat-button class="btn btn-sm btn-warning" (click)="sendIdOfProjectToLp(item.id);">
+                                        Visitar projeto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

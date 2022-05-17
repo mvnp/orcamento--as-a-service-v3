@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\BudgetCategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +14,8 @@ use App\Http\Controllers\ContractController;
 use App\Http\Controllers\ContractsSampleController;
 use App\Http\Controllers\ContractsPropertierController;
 use App\Http\Controllers\ProjectAccomplishedController;
+use App\Http\Controllers\BudgetCategoryController;
+use App\Http\Controllers\TemporarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,7 +98,7 @@ Route::controller(ProjectTaskController::class)->group(function() {
 
 Route::controller(BudgetController::class)->group(function() {
     Route::prefix('v1')->group(function() {
-        // Route::get('/budgets',                   'index');
+        Route::get('/budgets',                      'index');
         Route::get('/budget/{project}',             'show');
         // Route::post('/cronograma',               'store');
         // Route::put('/cronograma',                'update');
@@ -146,6 +147,17 @@ Route::controller(ProjectAccomplishedController::class)->group(function() {
 Route::controller(BudgetCategoryController::class)->group(function() {
     Route::prefix('v1')->group(function() {
         Route::get('/budget-categories',                'index');
+        // Route::get('/budget-categories/{id}',        'show');
+        // Route::post('/budget-categories',            'store');
+        // Route::put('/budget-categories',             'update');
+        // Route::delete('/budget-categories/{id}',     'destroy');
+    });
+});
+
+Route::controller(TemporarioController::class)->group(function() {
+    Route::prefix('v1')->group(function() {
+        Route::get('/temporario',                       'index');
+        Route::get('/temporario/{id}',                  'show');
         // Route::get('/budget-categories/{id}',        'show');
         // Route::post('/budget-categories',            'store');
         // Route::put('/budget-categories',             'update');

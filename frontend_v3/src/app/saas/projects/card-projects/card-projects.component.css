@@ -1,0 +1,9 @@
+@import url('../../../app.component.css');
+
+::ng-deep.of-cards .card {
+    transform: translate3d(0, -20px, 0)!important;
+}
+
+::ng-deep.main-panel .main-content.main-content-card {
+    padding: 30px 15px 30px 15px!important;
+}

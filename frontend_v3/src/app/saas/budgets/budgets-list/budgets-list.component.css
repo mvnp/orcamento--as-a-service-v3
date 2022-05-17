@@ -18,3 +18,7 @@
 ::ng-deep#mdoal-orcamentos .buttons-to {
     align-self: center;
 }
+
+::ng-deep#mdoal-orcamentos .file-pdf {
+    box-shadow: -2px 3px 3px #ccc;
+}

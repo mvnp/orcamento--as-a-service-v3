@@ -23,6 +23,17 @@ export interface ChildrenItems {
 
 //Menu Items
 export const ROUTES: RouteInfo[] = [{
+        path: '/saas/projects',
+        title: 'Meus Projetos',
+        type: 'sub',
+        icontype: 'dashboard',
+        collapse: 'projects',
+        children: [{
+            path: 'all', 
+            title: 'Projetos', 
+            ab:'B'
+        }]
+    }, {
         path: '/dashboard',
         title: 'Painel',
         type: 'link',
@@ -55,11 +66,6 @@ export const ROUTES: RouteInfo[] = [{
     }, {
         path: '/saas/fornecedores',
         title: 'Fornecedores',
-        type: 'link',
-        icontype: 'dashboard'
-    }, {
-        path: '/saas/projects',
-        title: 'Meus Projetos',
         type: 'link',
         icontype: 'dashboard'
     }, {
