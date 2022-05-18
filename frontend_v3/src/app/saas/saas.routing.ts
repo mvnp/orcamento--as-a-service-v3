@@ -12,7 +12,7 @@ import { LandingPageComponent } from './projects/landing-page/landing-page.compo
 
 export const SaasRoutes: Routes = [
     { 
-        path: 'projects',
+        path: 'projects/index',
         component: ProjectsComponent
     },
     { 

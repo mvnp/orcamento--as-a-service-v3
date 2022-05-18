@@ -1,1 +1,129 @@
-<p>manager-projects works!</p>
+<!-- 
+    id           
+    customer_id
+    partner_id
+    title
+    description
+    property_area
+    total_area
+    amount
+    floors
+    type         
+    is_public    
+    is_active    
+    started_at   
+    ended_at     
+    created_at   
+    updated_at   
+-->
+<div id="form-setup" class="mat-elevation-z8">
+    <form class="row" [formGroup]="form" (submit)="onSubmit($event);">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-9">
+                    <!-- Position First -->
+                    <label>Título do projeto</label>
+                    <mat-form-field appearance="outline">
+                        <input matInput type="text" formControlName="title" class="form-control" />
+                        <mat-error *ngIf="submitted && form.get('title').hasError('required')">*Campo obrigatório</mat-error>
+                    </mat-form-field>
+
+                    <!-- Position First -->
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <label>Data de ínicio da obra</label>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <input matInput [matDatepicker]="picker" [min]="today" formControlName="startedAt" placeholder="Data de início" readonly class="form-control">
+                                <mat-datepicker-toggle matSuffix [for]="picker">
+                                    <mat-icon matDatepickerToggleIcon color="danger">calendar_today</mat-icon>
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #picker color="primary"></mat-datepicker>
+                                <mat-error *ngIf="submitted && form.get('startedAt').hasError('required')">
+                                    Campo obrigatório
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <label>Data prevista de término</label>
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <input matInput [matDatepicker]="picker_" [min]="today" formControlName="endedAt" placeholder="Data prevista de término" readonly class="form-control">
+                                <mat-datepicker-toggle matSuffix [for]="picker_">
+                                    <mat-icon matDatepickerToggleIcon color="danger">calendar_today</mat-icon>
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #picker_ color="primary"></mat-datepicker>
+                                <mat-error *ngIf="submitted && form.get('startedAt').hasError('required')">
+                                    Campo obrigatório
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- Position First -->
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <label>Área propriedade <sup>(terreno)</sup></label>
+                            <mat-form-field appearance="outline">
+                                <input matInput type="text" formControlName="property_area" class="form-control" currencyMask />
+                                <mat-error *ngIf="submitted && form.get('property_area').hasError('required')">*Campo obrigatório</mat-error>
+                            </mat-form-field>          
+                        </div>
+                        <div class="col-6">
+                            <label>Área construída</label>
+                            <mat-form-field appearance="outline">
+                                <input matInput type="text" formControlName="total_area" class="form-control" currencyMask />
+                                <mat-error *ngIf="submitted && form.get('total_area').hasError('required')">*Campo obrigatório</mat-error>
+                            </mat-form-field>  
+                        </div>
+                    </div>
+
+                    <!-- Position First -->
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <label>Tipo de empreendimento</label>
+                            <mat-form-field appearance="outline">
+                                <mat-select required formControlName="type">
+                                    <mat-option value="casa_propria">Casa própria</mat-option>
+                                    <mat-option value="predio_condominio">Prédio em condomínio</mat-option>
+                                    <mat-option value="mansao_piscina">Mansão com pisicna</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="submitted && form.get('type').hasError('required');">*Campo obrigatório</mat-error>
+                            </mat-form-field>        
+                        </div>
+                        <div class="col-4">
+                            <label>Quantidade andares</label>
+                            <mat-form-field appearance="outline">
+                                <input matInput type="text" formControlName="floors" class="form-control" />
+                                <mat-error *ngIf="submitted && form.get('floors').hasError('required')">*Campo obrigatório</mat-error>
+                            </mat-form-field>          
+                        </div>
+                        <div class="col-4">
+                            <label>Valor previsto da obra</label>
+                            <mat-form-field appearance="outline">
+                                <input matInput type="text" formControlName="amount" class="form-control" />
+                                <mat-error *ngIf="submitted && form.get('amount').hasError('required')">*Campo obrigatório</mat-error>
+                            </mat-form-field>  
+                        </div>
+                    </div>
+
+                    <!-- Position First -->
+                    <label>Fale detalhadamento sobre o seu projeto</label>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <textarea matInput formControlName="description" rows="5"></textarea>
+                        <mat-error *ngIf="submitted && form.get('description').hasError('required');">*Campo obrigatório</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-3">
+                    <label>Selecione imagem do projeto</label>
+                    <div class="foto d-flex">
+                        <button mat-icon-button (click)="fileInput.click()" class="profile-button" type="button">
+                            <i class="material-icons photo_camera">add_a_photo</i>
+                            <p class="size-of-image">800x500</p>
+                        </button>
+                        <input hidden (change)="onFileSelected($event)" #fileInput type="file" accept="image/*">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button mat-buttom type="submit" class="btn btn-success btn-lg pull-right mt-2">Criar projeto</button>
+    </form>
+</div>

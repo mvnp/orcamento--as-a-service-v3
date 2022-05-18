@@ -28,11 +28,17 @@ export const ROUTES: RouteInfo[] = [{
         type: 'sub',
         icontype: 'dashboard',
         collapse: 'projects',
-        children: [{
-            path: 'all', 
-            title: 'Projetos', 
-            ab:'B'
-        }]
+        children: [
+            {
+                path: 'index', 
+                title: 'Projetos', 
+                ab:'B'
+            }, {
+                path: 'all', 
+                title: 'Marketplace', 
+                ab:'B'
+            }
+        ]
     }, {
         path: '/dashboard',
         title: 'Painel',

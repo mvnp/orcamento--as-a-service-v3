@@ -1,0 +1,49 @@
+@import url('../../../app.component.css');
+
+.col-12 { 
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+.foto {
+    border: 2px dashed #ccc;
+    border-radius: 15px;
+    height: 240px;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto button {
+    width: 5rem;
+    height: 5rem;
+}
+
+.foto button i {
+    color: #ccc;
+    font-size: 7rem;
+    margin-left: -15px;
+}
+
+.foto .size-of-image {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    margin-left: 0px;
+    color: #ccc;
+}
+
+#form-setup label {
+    font-size: 14px;
+    line-height: 0;
+    color: #5e5e5e;
+    font-weight: 400;
+}
+
+::ng-deep#form-setup .mat-error {
+    margin-left: -12px!important;
+}
+
+::ng-deep#form-setup .form-control[readonly] {
+    background-color: transparent;
+    background-image: none!important;
+    opacity: 1;
+}

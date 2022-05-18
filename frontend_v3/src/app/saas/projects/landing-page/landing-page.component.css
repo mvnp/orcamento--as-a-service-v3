@@ -6,9 +6,8 @@
     z-index: 1;
 }
 
-.main-content.main-content-plan img {
-    box-shadow: 0px 2px 6px #888;
-}
+.main-content.main-content-plan img { box-shadow: 0px 2px 6px #888 }
+.img-thumbnail { border-radius: 8px!important }
 
 ::ng-deep.main-panel .main-content .mc-padding {
     margin-top: 55px!important;

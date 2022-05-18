@@ -61,11 +61,27 @@ table .button-fit-content {
     background: linear-gradient(60deg, #e53935, #db3834);
 }
 
+::ng-deep.mat-form-field-appearance-outline .mat-form-field-outline { color: rgb(0 0 0 / 48%) }
 ::ng-deep.mat-form-field-appearance-outline.mat-form-field-type-mat-input .mat-form-field-infix { padding: 0 }
 ::ng-deep.mat-form-field-appearance-outline.mat-form-field-type-mat-select .mat-form-field-infix { padding: 1em 0 0.4em 0 }
 
 /* Modals Inputs */
 ::ng-deep#mat-dialog-modal .mat-form-field-type-mat-input .mat-form-field-infix { padding: 0 0 12px 0!important }
+
+/* Logo Clube Sua Obra */
+::ng-deep.sidebar .logo {
+    margin-bottom: 40px;
+}
+::ng-deep.sidebar .logo a.logo-mini,
+::ng-deep.sidebar .logo-img {
+    float: none;
+    width: 100%;
+    max-height: unset;
+}
+
+::ng-deep.sidebar .logo-img img {
+    width: 85%;
+}
 
 /* Modals */
 /* Modals */

@@ -40,6 +40,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MdModule } from './example/md/md.module';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from "ng2-currency-mask";
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './example/shared/footer/footer.module';
@@ -57,6 +58,16 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt, 'pt');
+
+export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
+    align: "right",
+    allowNegative: false,
+    decimal: ",",
+    precision: 2,
+    prefix: "", // prefix: "R$ "
+    suffix: "",
+    thousands: "."
+};
 
 @NgModule({
     exports: [
@@ -116,7 +127,8 @@ export class MaterialModule {}
         FixedpluginModule,
         BrowserAnimationsModule,
         NgxSpinnerModule,
-        NgxMaskModule.forRoot()
+        NgxMaskModule.forRoot(),
+        CurrencyMaskModule
     ],
     declarations: [
         AppComponent,
@@ -132,6 +144,9 @@ export class MaterialModule {}
         }, {
             provide: DEFAULT_CURRENCY_CODE,
             useValue: 'BRL'
+        }, {
+            provide: CURRENCY_MASK_CONFIG,
+            useValue: CustomCurrencyMaskConfig
         }
     ],
     bootstrap: [AppComponent]
