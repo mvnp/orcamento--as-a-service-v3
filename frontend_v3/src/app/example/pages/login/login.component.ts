@@ -1,4 +1,6 @@
 import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/guards/auth.service';
 
 declare var $: any;
 
@@ -8,14 +10,24 @@ declare var $: any;
 })
 
 export class LoginComponent implements OnInit, OnDestroy {
+
     test: Date = new Date();
     private toggleButton: any;
     private sidebarVisible: boolean;
     private nativeElement: Node;
 
-    constructor(private element: ElementRef) {
-        this.nativeElement = element.nativeElement;
-        this.sidebarVisible = false;
+    constructor(
+        private router: Router, 
+        private route: ActivatedRoute, 
+        private element: ElementRef,
+        private authService: AuthService
+    ){
+        if (this.authService.isLoggedIn()) {
+            this.router.navigate(['dashboard']);
+        } else {
+            this.nativeElement = element.nativeElement;
+            this.sidebarVisible = false;
+        }
     }
 
     ngOnInit() {
@@ -30,6 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             card.classList.remove('card-hidden');
         }, 700);
     }
+    
     sidebarToggle() {
         var toggleButton = this.toggleButton;
         var body = document.getElementsByTagName('body')[0];
@@ -46,6 +59,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             body.classList.remove('nav-open');
         }
     }
+
     ngOnDestroy() {
         const body = document.getElementsByTagName('body')[0];
         body.classList.remove('login-page');

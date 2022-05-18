@@ -59,6 +59,9 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt, 'pt');
 
+import { AuthGuard } from './guards/auth-guard.service';
+import { AuthService } from './guards/auth.service';
+
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     align: "right",
     allowNegative: false,
@@ -147,7 +150,9 @@ export class MaterialModule {}
         }, {
             provide: CURRENCY_MASK_CONFIG,
             useValue: CustomCurrencyMaskConfig
-        }
+        },
+        AuthGuard,
+        AuthService
     ],
     bootstrap: [AppComponent]
 })

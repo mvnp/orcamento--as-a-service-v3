@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from './example/layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './example/layouts/auth/auth-layout.component';
 import { DashboardComponent } from './example/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth-guard.service';
 
 export const AppRoutes: Routes = [
     {
@@ -11,6 +12,7 @@ export const AppRoutes: Routes = [
         pathMatch: 'full',
     }, {
         path: '',
+        canActivate: [AuthGuard],
         component: AdminLayoutComponent,
         children: [
             {
@@ -43,12 +45,6 @@ export const AppRoutes: Routes = [
             }, {
                 path: '',
                 loadChildren: () => import('./example/userpage/user.module').then(m => m.UserModule)
-            }, {
-                path: 'cronograma',
-                loadChildren: () => import('./painel/cronograma/cronograma.module').then(m => m.CronogramaModule)
-            }, {
-                path: 'project',
-                loadChildren: () => import('./painel/project/project.module').then(m => m.ProjectModule)
             }, {
                 path: 'saas',
                 loadChildren: () => import('./saas/saas.module').then(m => m.SaasModule)
