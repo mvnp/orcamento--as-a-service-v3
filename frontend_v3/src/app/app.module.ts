@@ -53,14 +53,13 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { AppComponent } from './app.component';
 
 import { AppRoutes } from './app.routing';
+import { AuthGuard } from './guards/auth-guard.service';
+import { AuthService } from './guards/auth.service';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt, 'pt');
-
-import { AuthGuard } from './guards/auth-guard.service';
-import { AuthService } from './guards/auth.service';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     align: "right",

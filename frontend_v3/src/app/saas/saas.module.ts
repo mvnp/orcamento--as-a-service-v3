@@ -16,10 +16,12 @@ import { CustomersModule } from './customers/customers.module';
 import { PartnersModule } from './partners/partners.module';
 import { ProjectsModule } from './projects/projects.module';
 import { BudgetsModule } from './budgets/budgets.module';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
     declarations: [
-        SaasComponent
+        SaasComponent,
+        ReportsComponent
     ],
     imports: [
         CommonModule,

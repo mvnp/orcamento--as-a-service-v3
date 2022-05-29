@@ -75,7 +75,7 @@ export const ROUTES: RouteInfo[] = [{
         type: 'link',
         icontype: 'dashboard'
     }, {
-        path: '/saas/relatorios',
+        path: '/saas/reports',
         title: 'Relatórios',
         type: 'link',
         icontype: 'dashboard'

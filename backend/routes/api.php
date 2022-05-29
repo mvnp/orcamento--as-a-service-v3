@@ -15,6 +15,7 @@ use App\Http\Controllers\ContractsSampleController;
 use App\Http\Controllers\ContractsPropertierController;
 use App\Http\Controllers\ProjectAccomplishedController;
 use App\Http\Controllers\BudgetCategoryController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TemporarioController;
 
 /*
@@ -159,6 +160,17 @@ Route::controller(TemporarioController::class)->group(function() {
         Route::get('/temporario',                       'index');
         Route::get('/temporario/{id}',                  'show');
         // Route::get('/budget-categories/{id}',        'show');
+        // Route::post('/budget-categories',            'store');
+        // Route::put('/budget-categories',             'update');
+        // Route::delete('/budget-categories/{id}',     'destroy');
+    });
+});
+
+Route::controller(ReportController::class)->group(function() {
+    Route::prefix('v1')->group(function() {
+        // Route::get('/reports/pdf/{id}',              'index');
+        // Route::get('/reports/{id}',                  'show');
+        Route::get('/reports/pdf/{id}',                 'show');
         // Route::post('/budget-categories',            'store');
         // Route::put('/budget-categories',             'update');
         // Route::delete('/budget-categories/{id}',     'destroy');
