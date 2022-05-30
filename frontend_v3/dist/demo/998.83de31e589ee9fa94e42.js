@@ -75314,7 +75314,7 @@ var ReportsVerificationsComponent = /** @class */ /*@__PURE__*/ (function () {
             data: {
                 title: 'Remover relatório',
                 text: 'Deseja realmente remover este relatório? Essa ação não poderá ser desfeita.',
-                btnTrue: 'Remover produto',
+                btnTrue: 'Remover relatório',
                 btnFalse: 'Cancelar',
             }
         }).afterClosed().subscribe(function (confirmation) {
