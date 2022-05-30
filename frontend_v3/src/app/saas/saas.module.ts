@@ -16,8 +16,9 @@ import { CustomersModule } from './customers/customers.module';
 import { PartnersModule } from './partners/partners.module';
 import { ProjectsModule } from './projects/projects.module';
 import { BudgetsModule } from './budgets/budgets.module';
-import { ReportsComponent } from './reports/reports.component';
 import { ReportsModule } from './reports/reports.module';
+import { PhotosComponent } from './photos/photos.component';
+import { PhotosModule } from './photos/photos.module';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { ReportsModule } from './reports/reports.module';
         ProjectsModule,
         BudgetsModule,
         ReportsModule,
+        PhotosModule,
     ]
 })
 export class SaasModule { }

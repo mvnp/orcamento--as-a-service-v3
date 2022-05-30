@@ -7,6 +7,7 @@ import { EstimateComponent } from './estimate/estimate.component';
 import { PartnersComponent } from './partners/partners.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ReportsComponent } from './reports/reports.component';
+import { PhotosComponent } from './photos/photos.component';
 
 import { CardProjectsComponent } from './projects/card-projects/card-projects.component';
 import { LandingPageComponent } from './projects/landing-page/landing-page.component';
@@ -30,5 +31,6 @@ export const SaasRoutes: Routes = [
     { path: 'contracts', component: ContractsComponent },
     { path: 'budgets', component: BudgetsComponent },
     { path: 'reports', component: ReportsComponent },
+    { path: 'photos', component: PhotosComponent },
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ]

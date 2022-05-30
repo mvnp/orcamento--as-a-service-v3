@@ -49,7 +49,7 @@ class ReportController extends Controller
     {
         $data = [
             'observacao' => Report::where('type', 'observacao')->get()->toArray(),
-            'items' => Report::where('type', 'itens')->get()->toArray(),
+            'items' => Report::where('type', 'verificacao')->get()->toArray(),
         ];
 
         view()->share('reports', $data);
