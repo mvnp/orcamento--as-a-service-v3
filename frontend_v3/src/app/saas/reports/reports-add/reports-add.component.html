@@ -1,0 +1,65 @@
+<div id="form-setup">
+    <div id="mat-dialog-modal" class="mb-3">
+        <div class="content top">
+            <div class="row">
+                <div class="col-11 col-md-11"><h3><span> {{ data.title }} </span></h3></div>
+                <div class="col-1 col-md-1 close-div">
+                    <button type="button" class="close" (click)="closeModal();">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="form" (submit)="addReports();" class="mb-0">
+        <div class="row">
+            <div class="col-12">
+                <!-- Position First -->
+                <label class="no-lh">Descrição do relatório</label>
+                <mat-form-field appearance="outline">
+                    <input matInput type="text" formControlName="name" class="form-control" />
+                    <mat-error>*Campo obrigatório</mat-error>
+                </mat-form-field>
+                <div class="row">
+                    <div class="col-12 col-md-7">
+                        <!-- Position First -->
+                        <label class="no-lh">Tipo de registro</label>
+                        <mat-form-field appearance="outline">
+                            <mat-select (selectionChange)="setConditionVerficationFn($event);" formControlName="type">
+                                <mat-option value="">Selecione uma opção</mat-option>
+                                <mat-option value="observacao">Adicionar observação</mat-option>
+                                <mat-option value="verificacao">Adicionar verificação</mat-option>
+                            </mat-select>
+                            <mat-error>*Campo obrigatório</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <!-- Position First -->
+                        <label class="no-lh">Status registro</label>
+                        <mat-form-field appearance="outline">
+                            <mat-select formControlName="status" [disabled]="setConditionVerfication">
+                                <mat-option value="">Selecione uma opção</mat-option>
+                                <mat-option value="sim">Verificado</mat-option>
+                                <mat-option value="nao">Não verificado</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <label class="no-lh">Descrição</label>
+                <mat-form-field appearance="outline">
+                    <textarea matInput placeholder="Descrição" formControlName="description" rows="4"></textarea>
+                    <mat-error>*Campo obrigatório</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-0 mb-0">
+            <div class="col-12 d-flex justify-content-end">
+                <button [disabled]="!form.valid" type="submit" class="btn btn-success"> Cadastrar </button>
+            </div>
+        </div>
+    </form>
+</div>

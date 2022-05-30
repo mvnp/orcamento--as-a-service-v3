@@ -9,61 +9,23 @@
                         </div>
                         <h4 class="card-title">Relatórios
                             <small class="category">&nbsp;</small>
+                            <button mat-raised-button class="btn btn-success btn-sm mx-3" (click)="createReportRegister();">
+                                Criar registro
+                            </button>
+                            <button mat-raised-button class="btn btn-info btn-sm" (click)="downloadFile();">
+                                Gerar PDF
+                            </button>
                         </h4>
                     </div>
                     <div class="card-body mt-3 mb-0">
-                        <div id="form-setup">
-                            <form [formGroup]="form" (submit)="addReports();">
-                                <div class="row">
-                                    <div class="col-12 col-md-7">
-                                        <!-- Position First -->
-                                        <label class="no-lh">Título do projeto</label>
-                                        <mat-form-field appearance="outline">
-                                            <input matInput type="text" formControlName="name" class="form-control" />
-                                            <mat-error>*Campo obrigatório</mat-error>
-                                        </mat-form-field>
-                                    </div>
-                                    <div class="col-12 col-md-3">
-                                        <!-- Position First -->
-                                        <label class="no-lh">Tipo de registro</label>
-                                        <mat-form-field appearance="outline">
-                                            <mat-select (selectionChange)="setConditionVerficationFn($event);" formControlName="type">
-                                                <mat-option value="">Selecione uma opção</mat-option>
-                                                <mat-option value="observacao">Adicionar observação</mat-option>
-                                                <mat-option value="verificacao">Adicionar verificação</mat-option>
-                                            </mat-select>
-                                            <mat-error>*Campo obrigatório</mat-error>
-                                        </mat-form-field>
-                                    </div>
-                                    <div class="col-12 col-md-2">
-                                        <!-- Position First -->
-                                        <label class="no-lh">Status registro</label>
-                                        <mat-form-field appearance="outline">
-                                            <mat-select formControlName="status" [disabled]="setConditionVerfication">
-                                                <mat-option value="">Selecione uma opção</mat-option>
-                                                <mat-option value="sim">Verificado</mat-option>
-                                                <mat-option value="nao">Não verificado</mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label class="no-lh">Descrição</label>
-                                        <mat-form-field appearance="outline">
-                                            <textarea matInput placeholder="Descrição" formControlName="description" rows="4"></textarea>
-                                            <mat-error>*Campo obrigatório</mat-error>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                                <div class="row mt-0 mb-0">
-                                    <div class="col-12 d-flex justify-content-end">
-                                        <button type="button" class="btn btn-danger mx-3" (click)="downloadFile();"> Gerar relatório </button>
-                                        <button [disabled]="!form.valid" type="submit" class="btn btn-success"> Cadastrar </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        <mat-tab-group>
+                            <mat-tab label="Observações">
+                                <app-reports-observations></app-reports-observations> 
+                            </mat-tab>
+                            <mat-tab label="Verificações">
+                                <app-reports-verifications></app-reports-verifications>
+                            </mat-tab>
+                        </mat-tab-group>
                     </div>
                 </div>
             </div>

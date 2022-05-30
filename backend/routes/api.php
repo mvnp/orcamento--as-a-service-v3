@@ -168,11 +168,11 @@ Route::controller(TemporarioController::class)->group(function() {
 
 Route::controller(ReportController::class)->group(function() {
     Route::prefix('v1')->group(function() {
-        // Route::get('/reports/pdf/{id}',              'index');
-        // Route::get('/reports/{id}',                  'show');
-        Route::get('/reports/pdf/{id}',                 'show');
-        // Route::post('/budget-categories',            'store');
-        // Route::put('/budget-categories',             'update');
-        // Route::delete('/budget-categories/{id}',     'destroy');
+        Route::get('/reports',                  'index');
+        Route::get('/reports/{project_id}',     'show');
+        Route::get('/reports/pdf/{id}',         'generate');
+        // Route::post('/budget-categories',    'store');
+        // Route::put('/budget-categories',     'update');
+        Route::delete('/reports/{id}',          'destroy');
     });
 });

@@ -17,11 +17,11 @@ import { PartnersModule } from './partners/partners.module';
 import { ProjectsModule } from './projects/projects.module';
 import { BudgetsModule } from './budgets/budgets.module';
 import { ReportsComponent } from './reports/reports.component';
+import { ReportsModule } from './reports/reports.module';
 
 @NgModule({
     declarations: [
         SaasComponent,
-        ReportsComponent
     ],
     imports: [
         CommonModule,
@@ -37,7 +37,8 @@ import { ReportsComponent } from './reports/reports.component';
         CustomersModule,
         PartnersModule,
         ProjectsModule,
-        BudgetsModule
+        BudgetsModule,
+        ReportsModule,
     ]
 })
 export class SaasModule { }

@@ -1,8 +1,12 @@
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { ReportsService } from './reports.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+
+import { ReportsAddComponent } from './reports-add/reports-add.component';
+import { MatDialog } from '@angular/material/dialog';
+
+import { DialogObject } from '../dialogObject';
 
 @Component({
     selector: 'app-reports',
@@ -11,47 +15,15 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ReportsComponent implements OnInit {
 
-    form: FormGroup;
-
-    submitted: boolean = false;
-    setConditionVerfication: boolean = true;
-
     constructor(
-        private formBuilder: FormBuilder,
+        private dialog: MatDialog,
         private _loader: NgxSpinnerService,
         private _reportsService: ReportsService,
-    ) {
-        this.form = this.formBuilder.group({
-            name: ['', Validators.required],
-            type: ['', Validators.required],
-            description: ['', Validators.required],
-            status: [{value: 'nao', disabled: true}, Validators.required],
-        });
-    }
+    ) {}
 
     ngOnInit(): void {}
 
-    addReports() {
-        this.submitted = true;
-        console.log(this.form.value);
-        
-        if(this.form.valid) {
-            console.log("valid!");
-        }
-    }
-
-    setConditionVerficationFn(event) {        
-        switch (event.value) {
-            case "verificacao":
-                this.form.get('status').enable();
-                this.setConditionVerfication = false;
-            break;
-            default:
-                this.form.get('status').disable();
-                this.setConditionVerfication = true;
-            break;
-        }
-    }
+    ngAfterViewInit(): void {}
 
     public downloadFile(): void {
         this._loader.show();
@@ -68,5 +40,22 @@ export class ReportsComponent implements OnInit {
                 this._loader.hide();
             }
         });
+    } 
+    
+    createReportRegister() {
+        this.dialog.open(ReportsAddComponent, {
+            width: '45rem',
+            disableClose: true,
+            data: <DialogObject> {
+                title: 'Criar registro de relatório',
+                text: 'Atendimento inicial',
+                btnTrue: 'Cadastrar',
+                btnFalse: 'Cancelar',
+            }
+        }).afterClosed().subscribe(
+            (response: any) => {
+                console.log("matDialog closed!");
+            }
+        );
     }
 }

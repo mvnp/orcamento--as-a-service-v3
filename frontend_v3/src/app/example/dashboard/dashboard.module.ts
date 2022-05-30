@@ -13,6 +13,7 @@ import { BudgetModule } from './../../painel/budget/budget.module';
 import { DashboardRoutes } from './dashboard.routing';
 
 import { SaasModule } from './../../saas/saas.module';
+import { DialogConfirmationModule } from 'src/app/dialog-confirmation/dialog-confirmation.module';
 
 @NgModule({
     imports: [
@@ -26,6 +27,7 @@ import { SaasModule } from './../../saas/saas.module';
         CronogramaModule,
         BudgetModule,
         SaasModule,
+        DialogConfirmationModule
     ],
     declarations: [DashboardComponent]
 })
