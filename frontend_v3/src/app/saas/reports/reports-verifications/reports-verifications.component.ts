@@ -97,7 +97,7 @@ export class ReportsVerificationsComponent implements OnInit {
             data: <DialogObject> {
                 title: 'Remover relatório',
                 text: 'Deseja realmente remover este relatório? Essa ação não poderá ser desfeita.',
-                btnTrue: 'Remover produto',
+                btnTrue: 'Remover relatório',
                 btnFalse: 'Cancelar',
             }
         }).afterClosed().subscribe(
