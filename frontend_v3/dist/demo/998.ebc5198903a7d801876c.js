@@ -72862,6 +72862,101 @@ var PartnersService = /** @class */ /*@__PURE__*/ (function () {
 
 /***/ }),
 
+/***/ 73045:
+/*!*************************************************!*\
+  !*** ./src/app/saas/photos/photos.component.ts ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PhotosComponent": function() { return /* binding */ PhotosComponent; }
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 35366);
+
+var PhotosComponent = /** @class */ /*@__PURE__*/ (function () {
+    function PhotosComponent() {
+    }
+    PhotosComponent.prototype.ngOnInit = function () {
+    };
+    PhotosComponent.ɵfac = function PhotosComponent_Factory(t) { return new (t || PhotosComponent)(); };
+    PhotosComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PhotosComponent, selectors: [["app-photos"]], decls: 19, vars: 0, consts: [[1, "main-content"], [1, "container-fluid"], [1, "row"], [1, "col-12", "col-md-12"], [1, "card"], [1, "card-header", "card-header-icon", "card-header-rose"], [1, "card-icon"], [1, "material-icons"], [1, "card-title"], [1, "category"], ["mat-raised-button", "", 1, "btn", "btn-success", "btn-sm", "mx-3"], ["mat-raised-button", "", 1, "btn", "btn-info", "btn-sm"], [1, "card-body", "mt-3", "mb-0"]], template: function PhotosComponent_Template(rf, ctx) {
+            if (rf & 1) {
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 4);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 5);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "i", 7);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "perm_identity");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "h4", 8);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Relat\u00F3rios ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "small", 9);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "\u00A0");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "button", 10);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, " Criar registro ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "button", 11);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, " Gerar PDF ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 12);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, " CONTENT ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            }
+        }, styles: [""] });
+    return PhotosComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ 27271:
+/*!**********************************************!*\
+  !*** ./src/app/saas/photos/photos.module.ts ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PhotosModule": function() { return /* binding */ PhotosModule; }
+/* harmony export */ });
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 61116);
+/* harmony import */ var _photos_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./photos.component */ 73045);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 35366);
+
+
+
+var PhotosModule = /** @class */ /*@__PURE__*/ (function () {
+    function PhotosModule() {
+    }
+    PhotosModule.ɵfac = function PhotosModule_Factory(t) { return new (t || PhotosModule)(); };
+    PhotosModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: PhotosModule });
+    PhotosModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ imports: [[
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule
+            ]] });
+    return PhotosModule;
+}());
+
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](PhotosModule, { declarations: [_photos_component__WEBPACK_IMPORTED_MODULE_0__.PhotosComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule] }); })();
+
+
+/***/ }),
+
 /***/ 45928:
 /*!************************************************************************!*\
   !*** ./src/app/saas/projects/card-projects/card-projects.component.ts ***!
@@ -75751,13 +75846,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SaasModule": function() { return /* binding */ SaasModule; }
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common */ 61116);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/forms */ 31041);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common */ 61116);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ 31041);
 /* harmony import */ var _app_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app.module */ 78994);
 /* harmony import */ var _example_md_md_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../example/md/md.module */ 22551);
-/* harmony import */ var ngx_mask__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ngx-mask */ 51601);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/router */ 29996);
-/* harmony import */ var mat_table_exporter__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! mat-table-exporter */ 82074);
+/* harmony import */ var ngx_mask__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-mask */ 51601);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/router */ 29996);
+/* harmony import */ var mat_table_exporter__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! mat-table-exporter */ 82074);
 /* harmony import */ var _saas_routing__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./saas.routing */ 29207);
 /* harmony import */ var _saas_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./saas.component */ 98765);
 /* harmony import */ var _contracts_contracts_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contracts/contracts.module */ 91085);
@@ -75767,7 +75862,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _projects_projects_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./projects/projects.module */ 97764);
 /* harmony import */ var _budgets_budgets_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./budgets/budgets.module */ 82720);
 /* harmony import */ var _reports_reports_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./reports/reports.module */ 92941);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/core */ 35366);
+/* harmony import */ var _photos_photos_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./photos/photos.module */ 27271);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ 35366);
+
 
 
 
@@ -75791,16 +75888,16 @@ var SaasModule = /** @class */ /*@__PURE__*/ (function () {
     function SaasModule() {
     }
     SaasModule.ɵfac = function SaasModule_Factory(t) { return new (t || SaasModule)(); };
-    SaasModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineNgModule"]({ type: SaasModule });
-    SaasModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵdefineInjector"]({ imports: [[
-                _angular_common__WEBPACK_IMPORTED_MODULE_12__.CommonModule,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_13__.FormsModule,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_13__.ReactiveFormsModule,
+    SaasModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineNgModule"]({ type: SaasModule });
+    SaasModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineInjector"]({ imports: [[
+                _angular_common__WEBPACK_IMPORTED_MODULE_13__.CommonModule,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_14__.FormsModule,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_14__.ReactiveFormsModule,
                 _app_module__WEBPACK_IMPORTED_MODULE_0__.MaterialModule,
                 _example_md_md_module__WEBPACK_IMPORTED_MODULE_1__.MdModule,
-                ngx_mask__WEBPACK_IMPORTED_MODULE_14__.NgxMaskModule.forChild(),
-                _angular_router__WEBPACK_IMPORTED_MODULE_15__.RouterModule.forChild(_saas_routing__WEBPACK_IMPORTED_MODULE_2__.SaasRoutes),
-                mat_table_exporter__WEBPACK_IMPORTED_MODULE_16__.MatTableExporterModule,
+                ngx_mask__WEBPACK_IMPORTED_MODULE_15__.NgxMaskModule.forChild(),
+                _angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule.forChild(_saas_routing__WEBPACK_IMPORTED_MODULE_2__.SaasRoutes),
+                mat_table_exporter__WEBPACK_IMPORTED_MODULE_17__.MatTableExporterModule,
                 _estimate_estimate_module__WEBPACK_IMPORTED_MODULE_5__.EstimateModule,
                 _contracts_contracts_module__WEBPACK_IMPORTED_MODULE_4__.ContractsModule,
                 _customers_customers_module__WEBPACK_IMPORTED_MODULE_6__.CustomersModule,
@@ -75808,23 +75905,25 @@ var SaasModule = /** @class */ /*@__PURE__*/ (function () {
                 _projects_projects_module__WEBPACK_IMPORTED_MODULE_8__.ProjectsModule,
                 _budgets_budgets_module__WEBPACK_IMPORTED_MODULE_9__.BudgetsModule,
                 _reports_reports_module__WEBPACK_IMPORTED_MODULE_10__.ReportsModule,
+                _photos_photos_module__WEBPACK_IMPORTED_MODULE_11__.PhotosModule,
             ]] });
     return SaasModule;
 }());
 
 (function () {
-    (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_11__["ɵɵsetNgModuleScope"](SaasModule, { declarations: [_saas_component__WEBPACK_IMPORTED_MODULE_3__.SaasComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_12__.CommonModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_13__.FormsModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_13__.ReactiveFormsModule,
+    (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵsetNgModuleScope"](SaasModule, { declarations: [_saas_component__WEBPACK_IMPORTED_MODULE_3__.SaasComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_13__.CommonModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_14__.FormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_14__.ReactiveFormsModule,
             _app_module__WEBPACK_IMPORTED_MODULE_0__.MaterialModule,
-            _example_md_md_module__WEBPACK_IMPORTED_MODULE_1__.MdModule, ngx_mask__WEBPACK_IMPORTED_MODULE_14__.NgxMaskModule, _angular_router__WEBPACK_IMPORTED_MODULE_15__.RouterModule, mat_table_exporter__WEBPACK_IMPORTED_MODULE_16__.MatTableExporterModule,
+            _example_md_md_module__WEBPACK_IMPORTED_MODULE_1__.MdModule, ngx_mask__WEBPACK_IMPORTED_MODULE_15__.NgxMaskModule, _angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule, mat_table_exporter__WEBPACK_IMPORTED_MODULE_17__.MatTableExporterModule,
             _estimate_estimate_module__WEBPACK_IMPORTED_MODULE_5__.EstimateModule,
             _contracts_contracts_module__WEBPACK_IMPORTED_MODULE_4__.ContractsModule,
             _customers_customers_module__WEBPACK_IMPORTED_MODULE_6__.CustomersModule,
             _partners_partners_module__WEBPACK_IMPORTED_MODULE_7__.PartnersModule,
             _projects_projects_module__WEBPACK_IMPORTED_MODULE_8__.ProjectsModule,
             _budgets_budgets_module__WEBPACK_IMPORTED_MODULE_9__.BudgetsModule,
-            _reports_reports_module__WEBPACK_IMPORTED_MODULE_10__.ReportsModule] });
+            _reports_reports_module__WEBPACK_IMPORTED_MODULE_10__.ReportsModule,
+            _photos_photos_module__WEBPACK_IMPORTED_MODULE_11__.PhotosModule] });
 })();
 
 
@@ -75848,8 +75947,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partners_partners_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partners/partners.component */ 24967);
 /* harmony import */ var _projects_projects_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./projects/projects.component */ 11954);
 /* harmony import */ var _reports_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reports/reports.component */ 75352);
-/* harmony import */ var _projects_card_projects_card_projects_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./projects/card-projects/card-projects.component */ 45928);
-/* harmony import */ var _projects_landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./projects/landing-page/landing-page.component */ 68989);
+/* harmony import */ var _photos_photos_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./photos/photos.component */ 73045);
+/* harmony import */ var _projects_card_projects_card_projects_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./projects/card-projects/card-projects.component */ 45928);
+/* harmony import */ var _projects_landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./projects/landing-page/landing-page.component */ 68989);
+
 
 
 
@@ -75866,11 +75967,11 @@ var SaasRoutes = [
     },
     {
         path: 'projects/all',
-        component: _projects_card_projects_card_projects_component__WEBPACK_IMPORTED_MODULE_7__.CardProjectsComponent
+        component: _projects_card_projects_card_projects_component__WEBPACK_IMPORTED_MODULE_8__.CardProjectsComponent
     },
     {
         path: 'projects/lp',
-        component: _projects_landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_8__.LandingPageComponent
+        component: _projects_landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__.LandingPageComponent
     },
     { path: 'customers', component: _customers_customers_component__WEBPACK_IMPORTED_MODULE_1__.CustomersComponent },
     { path: 'partners', component: _partners_partners_component__WEBPACK_IMPORTED_MODULE_4__.PartnersComponent },
@@ -75878,6 +75979,7 @@ var SaasRoutes = [
     { path: 'contracts', component: _contracts_contracts_component__WEBPACK_IMPORTED_MODULE_2__.ContractsComponent },
     { path: 'budgets', component: _budgets_budgets_component__WEBPACK_IMPORTED_MODULE_0__.BudgetsComponent },
     { path: 'reports', component: _reports_reports_component__WEBPACK_IMPORTED_MODULE_6__.ReportsComponent },
+    { path: 'photos', component: _photos_photos_component__WEBPACK_IMPORTED_MODULE_7__.PhotosComponent },
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 
