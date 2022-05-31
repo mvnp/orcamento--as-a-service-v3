@@ -1,0 +1,51 @@
+<div id="form-setup">
+    <div id="mat-dialog-modal" class="mb-3">
+        <div class="content top">
+            <div class="row">
+                <div class="col-11 col-md-11"><h3><span> {{ data.title }} </span></h3></div>
+                <div class="col-1 col-md-1 close-div">
+                    <button type="button" class="close" (click)="closeModal();">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="form" (submit)="editGenerics();" class="mb-0">
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <!-- Position First -->
+                <label class="no-lh">Informação</label>
+                <mat-form-field appearance="outline">
+                    <input matInput type="text" formControlName="short_description" class="form-control" />
+                    <mat-error>*Campo obrigatório</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-12 col-md-4">
+                <!-- Position First -->
+                <label class="no-lh">Status</label>
+                <mat-form-field appearance="outline">
+                    <mat-select formControlName="status">
+                        <mat-option [value]=true>Habilitado</mat-option>
+                        <mat-option [value]=false>Desabilitado</mat-option>
+                    </mat-select>
+                </mat-form-field> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <label class="no-lh">Descrição completa</label>
+                <mat-form-field appearance="outline">
+                    <textarea matInput placeholder="Descrição" formControlName="description" rows="4"></textarea>
+                    <mat-error>*Campo obrigatório</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row mt-0 mb-0">
+            <div class="col-12 d-flex justify-content-end">
+                <button type="button" class="btn btn-danger mx-3" (click)="onNoClick();"> Cancelar </button>
+                <button [disabled]="!form.valid" type="submit" class="btn btn-success"> Atualizar </button>
+            </div>
+        </div>
+    </form>
+</div>

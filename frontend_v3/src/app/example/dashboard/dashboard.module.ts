@@ -7,12 +7,13 @@ import { MaterialModule } from 'src/app/app.module';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import { DashboardComponent } from './dashboard.component';
+
 import { CronogramaModule } from './../../painel/cronograma/cronograma.module';
 import { BudgetModule } from './../../painel/budget/budget.module';
+import { SaasModule } from './../../saas/saas.module';
 
 import { DashboardRoutes } from './dashboard.routing';
 
-import { SaasModule } from './../../saas/saas.module';
 import { DialogConfirmationModule } from 'src/app/dialog-confirmation/dialog-confirmation.module';
 
 @NgModule({

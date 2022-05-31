@@ -15,7 +15,6 @@ import { DialogObject } from '../../dialogObject';
 export class ReportsAddComponent implements OnInit {
 
     form: FormGroup;
-
     submitted: boolean = false;
     setConditionVerfication: boolean = true;
 

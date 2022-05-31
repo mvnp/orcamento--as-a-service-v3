@@ -48,7 +48,7 @@ export const AppRoutes: Routes = [
             }, {
                 path: 'saas',
                 loadChildren: () => import('./saas/saas.module').then(m => m.SaasModule)
-            },
+            }
         ]
     }, {
         path: '',

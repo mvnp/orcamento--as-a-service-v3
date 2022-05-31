@@ -15,6 +15,7 @@ use App\Http\Controllers\ContractsSampleController;
 use App\Http\Controllers\ContractsPropertierController;
 use App\Http\Controllers\ProjectAccomplishedController;
 use App\Http\Controllers\BudgetCategoryController;
+use App\Http\Controllers\GenericController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TemporarioController;
 
@@ -174,5 +175,16 @@ Route::controller(ReportController::class)->group(function() {
         // Route::post('/budget-categories',    'store');
         // Route::put('/budget-categories',     'update');
         Route::delete('/reports/{id}',          'destroy');
+    });
+});
+
+
+Route::controller(GenericController::class)->group(function() {
+    Route::prefix('v1')->group(function() {
+        Route::get('/generics',             'index');
+        Route::get('/generics/{id}',        'show');
+        Route::post('/generics',            'store');
+        Route::put('/generics/{id}',        'update');
+        Route::delete('/generics/{id}',     'destroy');
     });
 });
