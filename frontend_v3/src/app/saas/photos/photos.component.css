@@ -4,3 +4,27 @@
     border-radius: 5px;
     padding: 7px;
 }
+
+button[mat-icon-button].answer {
+    border: 0px solid #ccc;
+    position: absolute;
+    bottom: 6px;
+    left: 3px;
+    background-color: transparent;
+    margin-right: 6px;
+    color: white;
+    border-radius: 100%;
+    padding: 5px 8px 3px;
+}
+
+button[mat-icon-button].remove {
+    border: 0px solid #ccc;
+    position: absolute;
+    bottom: 6px;
+    right: 0;
+    background-color: transparent;
+    margin-right: 6px;
+    color: white;
+    border-radius: 100%;
+    padding: 5px 8px 3px;
+}

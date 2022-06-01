@@ -18,8 +18,14 @@
                     <div class="card-body mt-3 mb-0">
                         <div class="row">
                             <div class="col-12 col-sm-3 col-md-3 mb-4" *ngFor="let photo of projectPhotos; let i = index">
-                                <div class="wrapper-img-gallery">
+                                <div class="wrapper-img-gallery" style="position: relative">
                                     <img class="w-100" [src]="photo.thumb" [alt]="photo.legends" />
+                                    <button mat-icon-button class="answer" (click)="answerProjetImage(photo.id)">
+                                        <i class="material-icons">delete</i>
+                                    </button>
+                                    <button mat-icon-button class="remove" (click)="removeProjetImage(photo.id)">
+                                        <i class="material-icons">delete</i>
+                                    </button>
                                 </div>
                             </div>
                         </div>

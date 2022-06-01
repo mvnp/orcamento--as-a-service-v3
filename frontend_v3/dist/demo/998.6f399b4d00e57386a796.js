@@ -73957,9 +73957,22 @@ __webpack_require__.r(__webpack_exports__);
 
 function PhotosComponent_div_19_Template(rf, ctx) {
     if (rf & 1) {
+        var _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 18);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "div", 19);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelement"](2, "img", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](3, "button", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PhotosComponent_div_19_Template_button_click_3_listener() { var restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r5); var photo_r2 = restoredCtx.$implicit; var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](); return ctx_r4.answerProjetImage(photo_r2.id); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](4, "i", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](5, "delete");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](6, "button", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PhotosComponent_div_19_Template_button_click_6_listener() { var restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r5); var photo_r2 = restoredCtx.$implicit; var ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](); return ctx_r6.removeProjetImage(photo_r2.id); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](7, "i", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](8, "delete");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     }
@@ -74052,10 +74065,26 @@ var PhotosComponent = /** @class */ /*@__PURE__*/ (function () {
     PhotosComponent.prototype.loadMore = function (event) {
         return true;
     };
+    PhotosComponent.prototype.answerProjetImage = function (event) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+            title: "Algo deu errado!",
+            text: "A foto não foi removida. Contacte o administrador do sistema.",
+            customClass: { confirmButton: "btn btn-danger" },
+            buttonsStyling: false, icon: "error",
+        });
+    };
+    PhotosComponent.prototype.removeProjetImage = function (event) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
+            title: "Foto removida!",
+            text: "A foto foi removida com sucesso do sistema.",
+            customClass: { confirmButton: "btn btn-success" },
+            buttonsStyling: false, icon: "success",
+        });
+    };
     PhotosComponent.ɵfac = function PhotosComponent_Factory(t) { return new (t || PhotosComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](ngx_spinner__WEBPACK_IMPORTED_MODULE_4__.NgxSpinnerService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_photos_service__WEBPACK_IMPORTED_MODULE_0__.PhotosService)); };
-    PhotosComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: PhotosComponent, selectors: [["app-photos"]], decls: 24, vars: 1, consts: [[1, "main-content"], [1, "container-fluid"], [1, "row"], [1, "col-12", "col-md-12"], [1, "card"], [1, "card-header", "card-header-icon", "card-header-rose"], [1, "card-icon"], [1, "material-icons"], [1, "card-title"], [1, "category"], ["hidden", "", "type", "file", "accept", "image/*", "multiple", "", 3, "change"], ["fileInput", ""], ["mat-raised-button", "", 1, "btn", "btn-success", "btn-sm", "mx-3", 3, "click"], [1, "card-body", "mt-3", "mb-0"], ["class", "col-12 col-sm-3 col-md-3 mb-4", 4, "ngFor", "ngForOf"], [1, "row", "mb-3"], [1, "col-12", "text-center"], ["type", "button", 1, "btn", "btn-md", "btn-primary", 3, "click"], [1, "col-12", "col-sm-3", "col-md-3", "mb-4"], [1, "wrapper-img-gallery"], [1, "w-100", 3, "src", "alt"]], template: function PhotosComponent_Template(rf, ctx) {
+    PhotosComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: PhotosComponent, selectors: [["app-photos"]], decls: 24, vars: 1, consts: [[1, "main-content"], [1, "container-fluid"], [1, "row"], [1, "col-12", "col-md-12"], [1, "card"], [1, "card-header", "card-header-icon", "card-header-rose"], [1, "card-icon"], [1, "material-icons"], [1, "card-title"], [1, "category"], ["hidden", "", "type", "file", "accept", "image/*", "multiple", "", 3, "change"], ["fileInput", ""], ["mat-raised-button", "", 1, "btn", "btn-success", "btn-sm", "mx-3", 3, "click"], [1, "card-body", "mt-3", "mb-0"], ["class", "col-12 col-sm-3 col-md-3 mb-4", 4, "ngFor", "ngForOf"], [1, "row", "mb-3"], [1, "col-12", "text-center"], ["type", "button", 1, "btn", "btn-md", "btn-primary", 3, "click"], [1, "col-12", "col-sm-3", "col-md-3", "mb-4"], [1, "wrapper-img-gallery", 2, "position", "relative"], [1, "w-100", 3, "src", "alt"], ["mat-icon-button", "", 1, "answer", 3, "click"], ["mat-icon-button", "", 1, "remove", 3, "click"]], template: function PhotosComponent_Template(rf, ctx) {
             if (rf & 1) {
-                var _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
+                var _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵgetCurrentView"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](1, "div", 1);
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](2, "div", 2);
@@ -74076,14 +74105,14 @@ var PhotosComponent = /** @class */ /*@__PURE__*/ (function () {
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("change", function PhotosComponent_Template_input_change_13_listener($event) { return ctx.uploadImageGallery($event); });
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](15, "button", 12);
-                _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PhotosComponent_Template_button_click_15_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r4); var _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](14); return _r0.click(); });
+                _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function PhotosComponent_Template_button_click_15_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r7); var _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](14); return _r0.click(); });
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](16, " Enviar fotos ");
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](17, "div", 13);
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](18, "div", 2);
-                _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](19, PhotosComponent_div_19_Template, 3, 2, "div", 14);
+                _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](19, PhotosComponent_div_19_Template, 9, 2, "div", 14);
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](20, "div", 15);
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](21, "div", 16);
@@ -74104,7 +74133,7 @@ var PhotosComponent = /** @class */ /*@__PURE__*/ (function () {
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](19);
                 _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngForOf", ctx.projectPhotos);
             }
-        }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf], styles: [".wrapper-img-gallery[_ngcontent-%COMP%] {\r\n    cursor: pointer;\r\n    border: 1px solid #cfcfcf;\r\n    border-radius: 5px;\r\n    padding: 7px;\r\n}"] });
+        }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf], styles: [".wrapper-img-gallery[_ngcontent-%COMP%] {\r\n    cursor: pointer;\r\n    border: 1px solid #cfcfcf;\r\n    border-radius: 5px;\r\n    padding: 7px;\r\n}\r\n\r\nbutton[mat-icon-button].answer[_ngcontent-%COMP%] {\r\n    border: 0px solid #ccc;\r\n    position: absolute;\r\n    bottom: 6px;\r\n    left: 3px;\r\n    background-color: transparent;\r\n    margin-right: 6px;\r\n    color: white;\r\n    border-radius: 100%;\r\n    padding: 5px 8px 3px;\r\n}\r\n\r\nbutton[mat-icon-button].remove[_ngcontent-%COMP%] {\r\n    border: 0px solid #ccc;\r\n    position: absolute;\r\n    bottom: 6px;\r\n    right: 0;\r\n    background-color: transparent;\r\n    margin-right: 6px;\r\n    color: white;\r\n    border-radius: 100%;\r\n    padding: 5px 8px 3px;\r\n}"] });
     return PhotosComponent;
 }());
 

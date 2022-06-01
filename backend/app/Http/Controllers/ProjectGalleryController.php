@@ -60,7 +60,7 @@ class ProjectGalleryController extends Controller
 
             if(File::exists($source)) {
 
-                Image::make($source)->fit(300, 300)->save($target);
+                Image::make($source)->fit(300, 250)->save($target);
 
                 $obj = [
                     'project_id' => $id ?? 1,

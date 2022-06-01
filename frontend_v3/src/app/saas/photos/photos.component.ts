@@ -111,4 +111,23 @@ export class PhotosComponent implements OnInit {
     loadMore(event) {
         return true;
     }
+
+    answerProjetImage(event) {
+        Swal.fire({
+            title: "Algo deu errado!",
+            text: "A foto não foi removida. Contacte o administrador do sistema.",
+            customClass:{ confirmButton: "btn btn-danger" },
+            buttonsStyling: false, icon: "error",
+            confirmButtonText: 'Fechar'
+        });
+    }
+
+    removeProjetImage(event) {
+        Swal.fire({
+            title: "Foto removida!",
+            text: "A foto foi removida com sucesso do sistema.",
+            customClass:{ confirmButton: "btn btn-success" },
+            buttonsStyling: false, icon: "success",
+        });
+    }
 }
