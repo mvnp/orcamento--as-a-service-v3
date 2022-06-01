@@ -16,6 +16,7 @@ use App\Http\Controllers\ContractsPropertierController;
 use App\Http\Controllers\ProjectAccomplishedController;
 use App\Http\Controllers\BudgetCategoryController;
 use App\Http\Controllers\GenericController;
+use App\Http\Controllers\ProjectGalleryController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TemporarioController;
 
@@ -178,7 +179,6 @@ Route::controller(ReportController::class)->group(function() {
     });
 });
 
-
 Route::controller(GenericController::class)->group(function() {
     Route::prefix('v1')->group(function() {
         Route::get('/generics',             'index');
@@ -186,5 +186,16 @@ Route::controller(GenericController::class)->group(function() {
         Route::post('/generics',            'store');
         Route::put('/generics/{id}',        'update');
         Route::delete('/generics/{id}',     'destroy');
+    });
+});
+
+
+Route::controller(ProjectGalleryController::class)->group(function() {
+    Route::prefix('v1')->group(function() {
+        Route::get('/project-gallery',              'index');
+        Route::get('/project-gallery/{id}',         'show');
+        Route::post('/project-gallery',             'store');
+        Route::put('/project-gallery/{id}',         'update');
+        Route::delete('/project-gallery/{id}',      'destroy');
     });
 });

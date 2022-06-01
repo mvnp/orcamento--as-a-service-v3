@@ -80,11 +80,11 @@ export const ROUTES: RouteInfo[] = [{
         type: 'link',
         icontype: 'dashboard'
     }, {
-        path: '/saas/fotosdaobra',
+        path: '/saas/photos',
         title: 'Fotos da Obra',
         type: 'link',
         icontype: 'dashboard'
-    }, 
+    },  
     // {
     //     path: '/components',
     //     title: 'Components',

@@ -11,12 +11,23 @@
                             <small class="category">&nbsp;</small>
                             <input hidden (change)="uploadImageGallery($event)" #fileInput type="file" accept="image/*" multiple>
                             <button mat-raised-button class="btn btn-success btn-sm mx-3" (click)="fileInput.click()">
-                                Enviar imagens
+                                Enviar fotos
                             </button>
                         </h4>
                     </div>
                     <div class="card-body mt-3 mb-0">
-                        CONTENT
+                        <div class="row">
+                            <div class="col-3 mb-4" *ngFor="let photo of projectPhotos; let i = index">
+                                <div class="wrapper-img-gallery">
+                                    <img class="w-100" [src]="photo.thumb" [alt]="photo.legends" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12 text-center">
+                                <button type="button" class="btn btn-md btn-primary" (click)="loadMore($event);">CARREGAR MAIS</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

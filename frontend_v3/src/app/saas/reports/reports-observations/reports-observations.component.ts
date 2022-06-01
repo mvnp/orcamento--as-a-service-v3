@@ -115,6 +115,7 @@ export class ReportsObservationsComponent implements OnInit {
                                     confirmButton: "btn btn-success",
                                 }
                             });
+
                             this.getAllObservations();
                             this._loader.hide();
                         }, error: (error) => {
@@ -127,6 +128,7 @@ export class ReportsObservationsComponent implements OnInit {
                                     confirmButton: "btn btn-danger",
                                 }
                             });
+                            
                             console.log(error);
                             this._loader.hide();
                         }, complete: () => {
