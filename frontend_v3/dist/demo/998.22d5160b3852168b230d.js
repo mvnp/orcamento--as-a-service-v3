@@ -73977,9 +73977,9 @@ var PhotosComponent = /** @class */ /*@__PURE__*/ (function () {
         this.sourceImages = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__.environment.sourceImages;
     }
     PhotosComponent.prototype.ngOnInit = function () {
-        var limit = 12;
-        var offset = null;
-        this.getProjectPhotos(limit, offset);
+        this.limit = 12;
+        this.offset = null;
+        this.getProjectPhotos(this.limit, this.offset);
     };
     PhotosComponent.prototype.getProjectPhotos = function (limit, offset) {
         var _this = this;
@@ -74022,11 +74022,12 @@ var PhotosComponent = /** @class */ /*@__PURE__*/ (function () {
                         customClass: { confirmButton: "btn btn-success" },
                         buttonsStyling: false, icon: "success",
                     });
+                    _this.getProjectPhotos(_this.limit, _this.offset);
                     _this._loader.hide();
                 },
                 error: function (error) {
                     sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
-                        title: "Algo deu erro",
+                        title: "Algo deu errado!",
                         text: "As fotos não foram enviadas. Tente novamente ou contacte o administrador do sistema.",
                         customClass: { confirmButton: "btn btn-danger" },
                         buttonsStyling: false, icon: "error",

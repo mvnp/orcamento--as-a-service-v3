@@ -17,15 +17,18 @@ export class PhotosComponent implements OnInit {
     sendProductPicture: boolean = false;
     sourceImages = environment.sourceImages;
 
+    limit: any;
+    offset: any;
+
     constructor(
         private _loader: NgxSpinnerService,
         private _photosService: PhotosService,
     ){}
 
     ngOnInit(): void {
-        let limit = 12;
-        let offset = null;
-        this.getProjectPhotos(limit, offset);
+        this.limit = 12;
+        this.offset = null;
+        this.getProjectPhotos(this.limit, this.offset);
     }
 
     getProjectPhotos(limit, offset)
@@ -74,11 +77,12 @@ export class PhotosComponent implements OnInit {
                         buttonsStyling: false, icon: "success",
                     });
 
+                    this.getProjectPhotos(this.limit, this.offset);
                     this._loader.hide();
                 }, 
                 error: (error: any) => {
                     Swal.fire({
-                        title: "Algo deu erro",
+                        title: "Algo deu errado!",
                         text: "As fotos não foram enviadas. Tente novamente ou contacte o administrador do sistema.",
                         customClass:{ confirmButton: "btn btn-danger" },
                         buttonsStyling: false, icon: "error",

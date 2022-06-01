@@ -86,7 +86,7 @@ class ProjectGalleryController extends Controller
     public function show($id, Request $request)
     {
         try {
-            $photos = $this->model->where('project_id', $id)->get();
+            $photos = $this->model->where('project_id', $id)->orderBy('id', 'desc')->get();
 
             if(count($photos) > 0 || throw new Exception("Não foi possível carregar as fotos do projeto.", 401)) {
                 return response()->json(['data' => $photos], 200);
