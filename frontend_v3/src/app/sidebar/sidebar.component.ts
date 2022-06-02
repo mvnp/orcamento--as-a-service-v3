@@ -66,7 +66,7 @@ export const ROUTES: RouteInfo[] = [{
         icontype: 'dashboard'
     }, {
         path: '/saas/empreiteiras',
-        title: 'Empreiteiros',
+        title: 'Construtoras',
         type: 'link',
         icontype: 'dashboard'
     }, {

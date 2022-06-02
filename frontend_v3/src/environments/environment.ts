@@ -5,6 +5,7 @@
 
 export const environment = {
     production: false,
+    apiUrl: 'http://127.0.0.1:8000/api/v1',
     productionUrl: 'http://127.0.0.1:8000/api/v1',
     sourceReports: 'http://localhost:8000/reports',
     sourceImages: 'http://localhost:8000/storage',

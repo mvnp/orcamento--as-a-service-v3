@@ -1,6 +1,6 @@
-import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
+import { APP_INITIALIZER, DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -46,6 +46,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './example/shared/footer/footer.module';
 import { NavbarModule } from './example/shared/navbar/navbar.module';
 import { FixedpluginModule} from './example/shared/fixedplugin/fixedplugin.module';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
 import { AdminLayoutComponent } from './example/layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './example/layouts/auth/auth-layout.component';
 
@@ -53,12 +55,14 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { AppComponent } from './app.component';
 
 import { AppRoutes } from './app.routing';
-import { AuthGuard } from './guards/auth-guard.service';
-import { AuthService } from './guards/auth.service';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { AuthGuard } from './guards/auth-guard';
+import { AuthService } from './guards/auth.service';
+import { appInitializer } from './_helpers/app.initializer';
+import { ErrorInterceptor } from './_helpers/error.interceptor';
 
 import localePt from '@angular/common/locales/pt';
+import { AuthInterceptor } from './auth.interceptor';
 registerLocaleData(localePt, 'pt');
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
@@ -140,15 +144,28 @@ export class MaterialModule {}
     providers : [
         MatNativeDateModule,
         Title,
+        { 
+            provide: APP_INITIALIZER, 
+            useFactory: appInitializer,
+            deps: [AuthService],
+            multi: true, 
+        },
+        { 
+            provide: HTTP_INTERCEPTORS, 
+            useClass: AuthInterceptor, 
+            multi: true 
+        },
+        { 
+            provide: HTTP_INTERCEPTORS, 
+            useClass: ErrorInterceptor,
+            multi: true 
+        },
         {
             provide: LOCALE_ID,
             useValue: 'pt'
         }, {
             provide: DEFAULT_CURRENCY_CODE,
             useValue: 'BRL'
-        }, {
-            provide: CURRENCY_MASK_CONFIG,
-            useValue: CustomCurrencyMaskConfig
         },
         AuthGuard,
         AuthService
