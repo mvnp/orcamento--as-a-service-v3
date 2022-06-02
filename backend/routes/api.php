@@ -30,13 +30,16 @@ use App\Http\Controllers\TemporarioController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('register', [\App\Http\Controllers\AuthController::class, 'register']);
-Route::post('login', [\App\Http\Controllers\AuthController::class, 'login']);
-Route::post('pagina-inicial', [\App\Http\Controllers\HomeController::class, 'pagina-inicial']);
 
-Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('user', [\App\Http\Controllers\AuthController::class, 'user']);
-    Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+Route::middleware(['api'])->group(function()
+{
+    Route::prefix('v1')->group(function() {
+        Route::post('/register', [AuthController::class, 'register']);
+        Route::post('/login', [AuthController::class, 'login']);
+        Route::post('/logout', [AuthController::class, 'logout']);
+        Route::post('/refresh', [AuthController::class, 'refresh']);
+        Route::post('/user', [AuthController::class, 'user']);
+    });
 });
 
 Route::controller(ProductCategoryController::class)->group(function() {
