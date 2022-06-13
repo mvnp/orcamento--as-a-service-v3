@@ -7,6 +7,15 @@
     margin-top: 10px!important;
 }
 
+.login-view {
+    background: url('https://gordon-james.com/wp-content/uploads/2021/04/200803_2895-Casco-Point_004-uai-2880x1920.jpg') no-repeat;
+    color: #3C4858;
+    font-weight: 300;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
 table .fit-content { 
     width: fit-content; 
     padding: 0 5px 

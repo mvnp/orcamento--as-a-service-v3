@@ -13,26 +13,47 @@ import { GenericsComponent } from './generics/generics.component';
 import { CardProjectsComponent } from './projects/card-projects/card-projects.component';
 import { LandingPageComponent } from './projects/landing-page/landing-page.component';
 
+import { AuthGuard } from '../_helpers/auth.guard';
+
 export const SaasRoutes: Routes = [
-    { 
-        path: 'projects/index',
-        component: ProjectsComponent
+    {
+        path: '',
+        children: [
+            { 
+                path: 'photos', 
+                component: PhotosComponent 
+            }, { 
+                path: 'projects/index',
+                component: ProjectsComponent
+            }, { 
+                path: 'projects/all',
+                component: CardProjectsComponent
+            }, { 
+                path: 'projects/lp',
+                component: LandingPageComponent
+            }, { 
+                path: 'customers', 
+                component: CustomersComponent 
+            }, { 
+                path: 'partners', 
+                component: PartnersComponent 
+            }, { 
+                path: 'estimate', 
+                component: EstimateComponent 
+            }, { 
+                path: 'contracts', 
+                component: ContractsComponent 
+            }, { 
+                path: 'budgets', 
+                component: BudgetsComponent 
+            }, { 
+                path: 'reports', 
+                component: ReportsComponent 
+            }, { 
+                path: 'generics', 
+                component: GenericsComponent 
+            },
+        ]
     },
-    { 
-        path: 'projects/all',
-        component: CardProjectsComponent
-    },
-    { 
-        path: 'projects/lp',
-        component: LandingPageComponent
-    },
-    { path: 'customers', component: CustomersComponent },
-    { path: 'partners', component: PartnersComponent },
-    { path: 'estimate', component: EstimateComponent },
-    { path: 'contracts', component: ContractsComponent },
-    { path: 'budgets', component: BudgetsComponent },
-    { path: 'reports', component: ReportsComponent },
-    { path: 'photos', component: PhotosComponent },
-    { path: 'generics', component: GenericsComponent },
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ]

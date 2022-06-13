@@ -56,14 +56,19 @@ import { AppComponent } from './app.component';
 
 import { AppRoutes } from './app.routing';
 
-import { AuthGuard } from './guards/auth-guard';
-import { AuthService } from './guards/auth.service';
-import { appInitializer } from './_helpers/app.initializer';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
+import { appInitializer } from './_helpers/app.initializer';
+import { AuthService } from './_helpers/auth.service';
+import { AuthGuard } from './_helpers/auth.guard';
 
 import localePt from '@angular/common/locales/pt';
-import { AuthInterceptor } from './auth.interceptor';
 registerLocaleData(localePt, 'pt');
+
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './example/pages/register/register.component';
+import { PricingComponent } from './example/pages/pricing/pricing.component';
+import { LockComponent } from './example/pages/lock/lock.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     align: "right",
@@ -121,7 +126,7 @@ export class MaterialModule {}
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(AppRoutes,{
+        RouterModule.forRoot(AppRoutes, {
             useHash: true
         }),
         HttpClientModule,
@@ -134,31 +139,35 @@ export class MaterialModule {}
         BrowserAnimationsModule,
         NgxSpinnerModule,
         NgxMaskModule.forRoot(),
-        CurrencyMaskModule
+        CurrencyMaskModule,
     ],
     declarations: [
         AppComponent,
         AdminLayoutComponent,
-        AuthLayoutComponent
+        AuthLayoutComponent,
+        LoginComponent,
+        RegisterComponent,
+        PricingComponent,
+        LockComponent,
     ],
     providers : [
         MatNativeDateModule,
         Title,
-        { 
-            provide: APP_INITIALIZER, 
+        {
+            provide: APP_INITIALIZER,
             useFactory: appInitializer,
-            deps: [AuthService],
-            multi: true, 
+            multi: true,
+            deps: [AuthService]
         },
-        { 
-            provide: HTTP_INTERCEPTORS, 
-            useClass: AuthInterceptor, 
-            multi: true 
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: JwtInterceptor,
+            multi: true
         },
-        { 
-            provide: HTTP_INTERCEPTORS, 
+        {
+            provide: HTTP_INTERCEPTORS,
             useClass: ErrorInterceptor,
-            multi: true 
+            multi: true
         },
         {
             provide: LOCALE_ID,

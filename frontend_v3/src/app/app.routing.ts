@@ -3,16 +3,26 @@ import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from './example/layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './example/layouts/auth/auth-layout.component';
 import { DashboardComponent } from './example/dashboard/dashboard.component';
-import { AuthGuard } from './guards/auth-guard.service';
+
+import { AuthGuard } from './_helpers/auth.guard';
+import { AuthService } from './_helpers/auth.service';
+
+import { LoginComponent } from './login/login.component';
+import { LockComponent } from './example/pages/lock/lock.component';
+import { RegisterComponent } from './example/pages/register/register.component';
+import { PricingComponent } from './example/pages/pricing/pricing.component';
 
 export const AppRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'auth/login',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
     }, {
+        path: 'auth/login',
+        component: LoginComponent
+    }, {
         path: '',
-        canActivate: [AuthGuard],
+        canActivate:[AuthGuard],
         component: AdminLayoutComponent,
         children: [
             {
@@ -40,10 +50,10 @@ export const AppRoutes: Routes = [
                 path: 'calendar',
                 loadChildren: () => import('./example/calendar/calendar.module').then(m => m.CalendarModule)
             }, {
-                path: '',
+                path: 'timeline',
                 loadChildren: () => import('./example/timeline/timeline.module').then(m => m.TimelineModule)
             }, {
-                path: '',
+                path: 'user',
                 loadChildren: () => import('./example/userpage/user.module').then(m => m.UserModule)
             }, {
                 path: 'saas',
@@ -51,15 +61,21 @@ export const AppRoutes: Routes = [
             }
         ]
     }, {
-        path: '',
-        component: AuthLayoutComponent,
-        children: [{
-            path: 'auth',
-            loadChildren: () => import('./example/pages/pages.module').then(m => m.PagesModule)
-        }]
-    },
-    { 
-        path: '**',   
-        component: DashboardComponent
+        path: 'lock',
+        component: LockComponent
+    }, {
+        path: 'register',
+        component: RegisterComponent
+    }, {
+        path: 'pricing',
+        component: PricingComponent
+    }, {
+        /***
+         * Para qualquer URL que tentar acessar e não existir,
+         * será redirecionado para esta página de login afim de
+         * solicitar as credenciais para entrar no sistema.
+         */
+        path: '**',
+        component: LoginComponent
     }
 ];
