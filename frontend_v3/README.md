@@ -5,6 +5,13 @@
 ng build --configuration production --base-href="https://orcamento.axitech.com.br/frontend_v3/dist/demo/" --deploy-url="https://orcamento.axitech.com.br/frontend_v3/dist/demo/"
 ```
 
+A maior dificuldade para implementar o login no frontend foi configurar os arquivos de rota para chamar o <canActivate> de forma que ele disparasse o guard e fizesse a autenticação do usuário na aplicação.
+
+- Foi modificado o arquivo de rotas <app.routing.ts> para colocar o <canActivate>.
+- Foi importado os componentes do <PagesModule> para o <AppModule> para desativá-lo.
+- Foi modificado o componente do login no ts e no html para atender as necessidades do sistema.
+- As referências estão no projeto do orçamento.
+
 ## Comitando tudo
 ```
 git add .
