@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(20)->create();
         // \App\Models\Report::factory(200)->create();
 
-        // $this->call([
-        //     UserSeeder::class,
-        //     CustomerSeeder::class,
-        //     ProductSeeder::class,
-        //     ProductImageSeeder::class,
-        // ]);
+        $this->call([
+        //      RoleSeeder::class,
+        //      CustomerSeeder::class,
+        //      ProductSeeder::class,
+        //      ProductImageSeeder::class,
+        ]);
     }
 }

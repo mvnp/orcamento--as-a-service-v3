@@ -7,7 +7,7 @@
                     <form [formGroup]="loginForm" (submit)="onSubmit();">
                         <div class="card card-login card-hidden">
                             <div class="card-header card-header-rose text-center">
-                                <h4 class="card-title">Gestão de Orçamentos</h4>
+                                <h4 class="card-title">Aliança Idiomas</h4>
                                 <!-- <div class="social-line">
                                     <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
                                     <i class="fa fa-facebook-square"></i>
@@ -54,7 +54,7 @@
                                 </span>
                             </div>
                             <div class="card-footer justify-content-center mt-2 mb-3">
-                                <button type="submit" mat-button class="btn btn-danger btn-md">Acessar</button>
+                                <button type="submit" [disabled]="!loginForm.valid" mat-button class="btn btn-danger btn-md">Acessar</button>
                             </div>
                         </div>
                     </form>

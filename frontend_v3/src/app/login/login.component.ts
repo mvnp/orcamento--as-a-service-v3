@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from 'src/app/_helpers/auth.service';
+import Swal from 'sweetalert2';
 
 declare var $: any;
 
@@ -53,8 +54,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         }, 700);
 
         this.loginForm = this.formBuilder.group({
-            email: ['financeiro@axitech.com.br', Validators.required],
-            password: ['password', Validators.required],
+            email: ['@axitech.com.br', [Validators.required, Validators.email]],
+            password: ['', Validators.required],
         });
 
         // get return url from route parameters or default to '/'
@@ -79,14 +80,15 @@ export class LoginComponent implements OnInit, OnDestroy {
                 this.router.navigate([this.returnUrl]);
             },
             error: (error: any) => {
-                // console.log("unauthorized from login.component.ts ::: X"); 
-                console.log(error);
+                return Swal.fire({
+                    title: "Algo deu errado!",
+                    text: "Não foi possível fazer login no sistema. Caso acredite que seja um erro, entre em contato com um administrador do sistema.",
+                    customClass: { confirmButton: "btn btn-danger" },
+                    buttonsStyling: false, icon: "error",
+                    confirmButtonText: 'Fechar'
+                });
             }
         });
-
-        // console.log(this.f.valid);
-        // console.log(this.f.value);
-        // this.router.navigateByUrl('logged');
     }
 
     sidebarToggle() {
